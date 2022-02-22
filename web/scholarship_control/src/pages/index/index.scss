@@ -1,0 +1,68 @@
+.index_main {
+  background-color: #ecf3fb;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .header {
+    background: url('../../assets/image/index/header.png') no-repeat center;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+      width: 251px;
+      height: 60px;
+      background: url('../../assets/image/login/logo.png') no-repeat 10px 10px;
+      background-size: 70% 70%;
+    }
+
+    .myInfo {
+      width: 200px;
+      height: 100%;
+      color: #fff;
+      line-height: 80px;
+      font-size: 14px;
+    }
+  }
+
+  .nav {
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(to bottom, #386fbd, #3d7bc7, #4e9adb);
+    position: absolute;
+    left: 0;
+  }
+
+  .main {
+    min-height: 550px;
+    position: absolute;
+    top: 70px;
+    bottom: 10px;
+    right: 10px;
+    left: 210px;
+    background-color: #ecf3fb;
+    border: 1px solid #e58100;
+  }
+
+  .foot {
+    width: 500px;
+    height: 30px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -250px;
+    text-align: center;
+    line-height: 30px;
+
+    span {
+      color: #ccc;
+    }
+  }
+}

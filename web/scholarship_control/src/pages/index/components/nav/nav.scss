@@ -1,0 +1,74 @@
+$mainColor:#e58100;
+
+.nav {
+  .anticon {
+    color: #ccc;
+  }
+
+  .ant-menu-submenu-expand-icon,
+  .ant-menu-submenu-arrow {
+    color: #fff;
+  }
+
+  .ant-menu-submenu-selected {
+    color: $mainColor;
+  }
+
+  .ant-menu-item-selected {
+    color: $mainColor;
+    font-weight: 700;
+  }
+
+  .ant-menu-item-active {
+    color: $mainColor;
+    font-weight: 700;
+  }
+
+  .ant-menu-item-selected a,
+  .ant-menu-item-selected a:hover {
+    color: $mainColor;
+  }
+
+  .ant-menu-root .ant-menu-item-selected .ant-menu-item-icon svg path {
+    color: $mainColor;
+  }
+
+  >ul :nth-child(1) {
+    color: #fff;
+  }
+
+  .ant-menu-submenu-selected .ant-menu-submenu-title {
+    color: $mainColor;
+  }
+
+  .ant-menu-item-selected a,
+  .ant-menu-item-selected a:hover {
+    color: $mainColor !important;
+  }
+
+  .ant-menu-item-selected a,
+  .ant-menu-item-selected a:hover {
+    color: $mainColor;
+  }
+
+  .ant-menu-item a:hover {
+    color: $mainColor;
+  }
+
+  ul ul li :nth-child(1) {
+    color: #000;
+  }
+
+  .ant-menu-light .ant-menu-item:hover,
+  .ant-menu-light .ant-menu-item-active,
+  .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+  .ant-menu-light .ant-menu-submenu-active,
+  .ant-menu-light .ant-menu-submenu-title:hover {
+    color: $mainColor;
+  }
+
+
+  .ant-menu-item::after {
+    border-color: $mainColor;
+  }
+}

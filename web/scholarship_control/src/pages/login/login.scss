@@ -1,0 +1,142 @@
+.login_page {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 微软雅黑;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+
+
+  .backgroundImg {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(2px);
+    background: url('../../assets/image/login/bg.png') no-repeat center;
+    background-size: 100% 100%;
+  }
+
+
+  .login_main {
+    transform: translateY(-100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 800px;
+
+
+    .login_title {
+      height: 50px;
+      width: 100%;
+
+      display: flex;
+      overflow: hidden;
+
+      .logo {
+        width: 251px;
+        height: 50px;
+        background: url('../../assets/image/login/logo.png') no-repeat center;
+        background-size: 100% 100%;
+      }
+
+      .split {
+        font-size: 50px;
+        color: #fff;
+        line-height: 30px;
+        font-weight: 100;
+      }
+
+      .page_name {
+        font-size: 25px;
+        line-height: 50px;
+        font-weight: 700;
+        color: #fff;
+        margin-left: 20px;
+      }
+    }
+
+    .login_box {
+      width: 600px;
+      height: 300px;
+      margin-top: 10px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+
+      h5 {
+        color: #fff;
+        text-align: center;
+      }
+
+
+      .notice {
+        width: 320px;
+        height: 300px;
+        border-radius: 10px;
+        padding: 10px 40px 30px;
+        background: rgba(0, 0, 0, .48);
+
+        p {
+          display: block;
+          text-align: left;
+          text-indent: 2em;
+          font-size: 12px;
+          color: #fff;
+          margin-bottom: 10px;
+        }
+
+      }
+
+      .login {
+        width: 270px;
+        height: 300px;
+        border-radius: 10px;
+        padding: 10px;
+        background: rgba(0, 0, 0, .48);
+
+
+        .ant-row .ant-form-item {
+          border-bottom: 1px solid;
+        }
+
+        hr {
+          margin-bottom: 30px;
+        }
+
+        .ant-form-item {
+          color: #fff;
+          transform: translateX(-15px);
+        }
+
+        .ant-form-item-label>label {
+          color: #fff;
+        }
+
+        .ant-checkbox-wrapper {
+          color: #fff;
+        }
+      }
+    }
+
+    .login_foot {
+      width: 700px;
+      height: 30px;
+      margin-top: 60px;
+      color: #fff;
+      text-align: center;
+      line-height: 30px;
+      font-size: 12px;
+    }
+  }
+
+
+}

@@ -1,0 +1,23 @@
+### 学生申请 award
+POST http://localhost:3000/students/createAward
+Content-Type: application/json
+
+{
+  "applyType":"个人奖学金",
+  "applyName":"优秀班干部",
+  "applyLevel":"校级",
+  "applyMain":"学习好就是吊777"
+} 
+
+### 学生申请修改成绩
+POST  http://localhost:3000/students/changeGrade
+Content-Type: application/json
+
+{
+  "grade_id":"620b6a34e651b3a31fcfc36a",
+  "newGrade":"70"
+}
+
+//   db.students.find({"stuId":"20181506210411"})
+//   db.students.update({"stuId":"20181506210411"},{$set:{awards:[]}})
+//   db.awards.drop()

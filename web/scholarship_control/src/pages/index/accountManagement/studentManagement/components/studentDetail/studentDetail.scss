@@ -1,0 +1,54 @@
+//弹出框样式
+.detail_box {
+  margin: 0 auto;
+
+  ul {
+    text-align: center;
+
+    li:nth-child(2n) {
+      background-color: #cccccc25;
+    }
+
+    li {
+      list-style: none;
+      border-bottom: 1px solid #ccc;
+      margin: auto;
+      padding: 3px;
+
+      span {
+        display: inline-block;
+      }
+
+      span:nth-child(1) {
+        min-width: 50px;
+      }
+
+      span:nth-child(2) {
+        min-width: 150px;
+      }
+
+
+
+    }
+  }
+
+  table {
+    margin: 0 auto;
+
+    td,
+    tr {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    thead td {
+      font-weight: 600;
+    }
+  }
+
+
+}
+
+.ant-modal-footer .cancelBtn {
+  display: none;
+}

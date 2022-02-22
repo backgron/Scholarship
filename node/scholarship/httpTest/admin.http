@@ -1,0 +1,57 @@
+### 获取所有用户信息
+GET http://localhost:3000/admins/getStudentInfo
+
+### 重置学生密码
+POST http://localhost:3000/admins/resetStuPassword
+Content-Type: application/json
+
+{
+  "_id":"62020a7963961d06f09382cf"
+}
+
+
+### 按照id 查看学生详细信息
+POST http://localhost:3000/admins/getStudentDetail
+Content-Type: application/json
+
+{
+  "_id":"62020a7963961d06f09382c9"
+}
+
+### 条件查询学生
+POST http://localhost:3000/admins/findStuBy
+Content-Type: application/json
+
+{
+  "name":3,
+  "_class":"18计科4班"
+}
+
+
+### 查询导员信息
+GET http://localhost:3000/admins/getCounselorInfo
+
+### 条件查询导员
+POST http://localhost:3000/admins/findCounselorBy
+Content-Type: application/json
+
+{
+  "position.academy":"计算机"
+}
+
+### 查看导员详情
+POST http://localhost:3000/admins/getCounselorsDetail
+Content-Type: application/json
+
+{
+  "_id":"620747ae78504d8d75d542e9"
+}
+
+
+### 重置导员密码
+POST http://localhost:3000/admins/resetCounselorPassword
+Content-Type: application/json
+
+{
+  "_id":"620747ae78504d8d75d542e9"
+}
