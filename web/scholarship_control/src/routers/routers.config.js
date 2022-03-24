@@ -2,6 +2,7 @@ import Index from '../pages/index/index'
 import Login from '../pages/login/login'
 import CounselorManagement from '../pages/index/accountManagement/counselorManagement/counselorManagement'
 import StudentManagement from '../pages/index/accountManagement/studentManagement/studentManagement'
+import GradeManagement from '../pages/index/gradeManagement/gradeManagement'
 
 export default [{
     path: '/',
@@ -21,7 +22,11 @@ export default [{
         path: 'studentManagement',
         Element: StudentManagement,
         role: ['admin', 'counselor']
-      },
+      }, {
+        path: 'gradeManagement',
+        Element: GradeManagement,
+        role: ['admin', 'counselor']
+      }
     ]
   }
 ]

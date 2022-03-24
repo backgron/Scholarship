@@ -23,7 +23,6 @@ export class ClassStatus {
     student: 0,
     counselor: 1,
     admin: 2,
-    sucess: 3,
   })
   @Prop()
   status: number

@@ -1,1 +1,3 @@
 
+### 查询所有 成绩修改申请
+GET http://localhost:3000/grades/findAllGradeApply

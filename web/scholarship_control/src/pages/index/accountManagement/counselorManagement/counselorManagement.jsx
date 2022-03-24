@@ -1,4 +1,4 @@
-import { Table, Tag, Popconfirm, Button, Input, Form, message } from 'antd'
+import { Table, Popconfirm, Button, Input, Form, message } from 'antd'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import CounselorDetail from './components/counselorDetail/counselorDetail'
@@ -158,6 +158,5 @@ export default () => {
 
       <CounselorDetail visible={visible} setVisible={setVisible} counselor={counselor} />
     </div >
-
   )
 }

@@ -6,4 +6,8 @@ import { GradesService } from './grades.service'
 export class GradesController {
   constructor(private readonly gradesService: GradesService) { }
 
+  @Get('findAllGradeApply')
+  findAllGradeApply() {
+    return this.gradesService.findAllGradeApply()
+  }
 }

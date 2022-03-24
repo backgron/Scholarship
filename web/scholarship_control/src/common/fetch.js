@@ -111,3 +111,12 @@ adminGetCounselorDetail(opt) {
     opt.error && opt.error(error)
   })
 }
+
+export function
+findAllGradeApply(opt) {
+  Fetch.get(config.findAllGradeApply, opt.params, header).then(function (data) {
+    opt.success && opt.success(data)
+  }).catch(function (error) {
+    opt.error && opt.error(error)
+  })
+}

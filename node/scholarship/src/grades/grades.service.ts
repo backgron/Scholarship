@@ -15,8 +15,19 @@ export class GradesService {
   ) { }
 
   findByClassId(gradeId: mongoose.Types.ObjectId) {
-    console.log(gradeId)
     return this.gradeModel.findOne({ _id: gradeId })
+  }
+
+  async findAllGradeApply() {
+    return await this.gradeModel.find({}, {
+      stuName: 1,
+      className: 1,
+      classGrade: 1,
+      'classStatus.newGrade': 1,
+      'classStatus.adminName': 1,
+      'classStatus.counselorName': 1,
+      'classStatus.status': 1
+    })
   }
 
   async studentChangeGrade(grade: ChangeGradeDto, session: any) {

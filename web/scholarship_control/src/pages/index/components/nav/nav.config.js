@@ -64,7 +64,7 @@ export default [{
   innerHtml: [{
     type: 'MenuItem',
     key: '5',
-    path: 'counselorManagement',
+    path: 'gradeManagement',
     role: ['admin', 'counselor'],
     innerHtml: '学生成绩审批',
   }, ]

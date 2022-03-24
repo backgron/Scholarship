@@ -29,6 +29,10 @@ let adminGetCounselorDetail = adminApi + 'getCounselorsDetail'
 let counselorApi = adr + 'counselors/'
 let counselorGetStudentInfo = counselorApi + 'getStudentInfo'
 
+//成绩接口
+let gradeApi = adr + 'grades/'
+let findAllGradeApply = gradeApi + 'findAllGradeApply'
+
 
 
 export default {
@@ -48,5 +52,8 @@ export default {
 
   //导员接口
   counselorGetStudentInfo,
+
+  //成绩接口
+  findAllGradeApply,
 
 }

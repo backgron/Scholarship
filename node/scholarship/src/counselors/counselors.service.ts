@@ -88,8 +88,6 @@ export class CounselorsService {
 
   //重置导员密码
   async resetCounselorPassword(_id: string) {
-    console.log(222222222)
-
     return restPassword(_id, this.counselorModel)
   }
 
@@ -97,6 +95,4 @@ export class CounselorsService {
   async findCounselorsByClass(className: string) {
     return await this.counselorModel.findOne({ 'position._class': { $elemMatch: { $eq: className } } })
   }
-
-
 }
