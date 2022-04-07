@@ -1,0 +1,43 @@
+/** @format */
+$maincolor: #3d7bc7;
+.homeBox {
+  height: 100%;
+  overflow: auto;
+  margin-top:-20px;
+  .swiper {
+    overflow: hidden;
+    background-color: #fff;
+    .swiperImage {
+      height: 200px;
+      width: 100%;
+    }
+  }
+
+  .mainInfo {
+    box-sizing: border-box;
+    padding: 8px 10px 0 10px;
+    width: 100%;
+    border-radius: 10px;
+    // background-color: #fff;
+    margin-top: 5px;
+
+    .InfoTitle {
+      text-align: center;
+      font-size: 14px;
+    }
+  }
+  .info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    overflow: hidden;
+    .infoItem {
+      width: calc(50% - 7.5px);
+      background-color: #fff;
+      border-radius: 10px 10px 0 0;
+      border-bottom: 3px solid $maincolor;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}

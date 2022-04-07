@@ -1,0 +1,17 @@
+.changeGrade{
+  .card{
+    margin-bottom: 5px;
+    .adm-card-body{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      padding:5px 0;
+
+      .labelValue{
+        color:#999;
+      }
+    }
+    display: flex;
+  }
+}
