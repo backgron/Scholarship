@@ -61,7 +61,6 @@ export class AppController {
       session.userType = "student"
       session.stu_counselor = await this.counselorsService.findCounselorsByClass(stu.position._class)
       session.stu_admin = await this.adminsService.findAdminByAcademy(stu.position.academy)
-      console.log(session.stu_admin)
       return {
         status: 200,
         data: {

@@ -1,12 +1,11 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
 import * as mongoose from 'mongoose'
-import { StudentSchema } from "src/students/schema/student.schema"
 import { ClassStatus } from "./classStatus.prop"
 
 export type GradeDocument = Grade & Document
 @Schema()
 export class Grade {
-  @Prop({ type: mongoose.Types.ObjectId })
+  @Prop({ type: mongoose.Types.ObjectId ,required:false})
   _id: mongoose.Types.ObjectId
 
   @Prop({ type: mongoose.Types.ObjectId, ref: 'Student' })

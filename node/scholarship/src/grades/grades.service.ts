@@ -6,11 +6,14 @@ import * as mongoose from 'mongoose'
 import { StudentsService } from 'src/students/students.service'
 import { ChangeGradeDto } from './dto/student-change-grade.dto'
 import { ObjectId } from 'mongodb'
+import { CreateGradeDTO } from './dto/create-grade.dto'
+import { StudentsModule } from 'src/students/students.module'
 
 
 @Injectable()
 export class GradesService {
-  constructor(@InjectModel(Grade.name) private readonly gradeModel: Model<GradeDocument>,
+  constructor(@InjectModel(Grade.name) 
+    private readonly gradeModel: Model<GradeDocument>,
     private readonly studentsService: StudentsService,
   ) { }
 
@@ -19,7 +22,7 @@ export class GradesService {
   }
 
   async findAllGradeApply() {
-    return await this.gradeModel.find({}, {
+    return await this.gradeModel.find({classStatus:{$ne:false}}, {
       stuName: 1,
       className: 1,
       classGrade: 1,
@@ -47,5 +50,18 @@ export class GradesService {
       }
       gra.save()
     }
+  }
+
+  async createGrade(createGradeDTO:CreateGradeDTO,session:any){
+    const grade = new this.gradeModel(createGradeDTO)
+    
+    const stu = await this.studentsService.findByObjectId(grade.stu)
+    grade._id = new mongoose.Types.ObjectId()
+    grade.save()
+    stu.grades.push(grade._id)
+
+    stu.save()
+    return 'create a Grade info'
+
   }
 }

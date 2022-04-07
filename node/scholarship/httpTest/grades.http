@@ -1,3 +1,15 @@
 
 ### 查询所有 成绩修改申请
 GET http://localhost:3000/grades/findAllGradeApply
+
+
+### 添加一条成绩
+POST http://localhost:3000/grades/createGrade
+Content-Type: application/json
+
+{
+  "stu": "62020a7963961d06f09382c9",
+  "stuName": "张三11",
+  "className":"Java",
+  "classGrade":"60"
+}

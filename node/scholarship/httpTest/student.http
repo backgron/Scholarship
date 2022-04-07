@@ -18,6 +18,10 @@ Content-Type: application/json
   "newGrade":"70"
 }
 
+### 学生查询自己的成绩
+GET  http://localhost:3000/students/getAllGrade?stuid=20181506210411
+
+
 //   db.students.find({"stuId":"20181506210411"})
 //   db.students.update({"stuId":"20181506210411"},{$set:{awards:[]}})
 //   db.awards.drop()

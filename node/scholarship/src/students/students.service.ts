@@ -20,12 +20,7 @@ export class StudentsService {
 
   //通过 stuId 查找学生
   async findByStuId(stuId: string) {
-    return await this.studentModel.findOne({ stuId: stuId })
-  }
-
-  //通过 ObjectId 查找学生
-  async findByObjectId(_id: string) {
-    let stu = await this.studentModel.find({ _id: new ObjectId(_id) }, {
+    let stu = await this.studentModel.find({ stuId: stuId }, {
       _id: 0,
       password: 0,
       awards: 0
@@ -33,12 +28,17 @@ export class StudentsService {
       path: 'grades', select: {
         _id: 0,
         className: 1,
-        classGrade: 1
+        classGrade: 1,
+        classStatus:1
       }
     }])
-    console.log(stu)
 
     return stu[0]
+  }
+
+  //通过 ObjectId 查找学生
+  async findByObjectId(_id: string) {
+    return await this.studentModel.findOne({ _id: new ObjectId(_id) })
   }
 
 

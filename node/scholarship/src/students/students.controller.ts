@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Session } from '@nestjs/common'
+import { Controller, Get, Post, Body, Patch, Param, Delete, Session, Query } from '@nestjs/common'
 import { StudentsService } from './students.service'
 import { CreateStudentDto } from './dto/create-student.dto'
 import { UpdateStudentDto } from './dto/update-student.dto'
@@ -33,6 +33,16 @@ export class StudentsController {
       status: 200,
       msg: '已申请修改成绩',
       data: grade
+    }
+  }
+
+  @Get('/getAllGrade')
+  async getAllGrade(@Query('stuid') stuid:string){
+    let stu = (await this.studentsService.findByStuId(stuid))
+    
+    return stu?stu.grades:{
+      statusCode:400,
+      message:'学生不存在'
     }
   }
 
