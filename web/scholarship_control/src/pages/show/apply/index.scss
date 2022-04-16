@@ -1,6 +1,11 @@
 $maincolor: #3d7bc7;
 
 .applyBox{
+  height: 100%;
+  position:relative;
+  .card-container,  .adm-tabs{
+    height: 100%;
+  }
   .adm-tabs-tab-wrapper .adm-tabs-tab-wrapper-stretch{
     background-color: pink;
     border-radius: 30px;

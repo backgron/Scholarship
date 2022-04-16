@@ -26,7 +26,7 @@ export class StudentsService {
       awards: 0
     }).populate([{
       path: 'grades', select: {
-        _id: 0,
+        _id: 1,
         className: 1,
         classGrade: 1,
         classStatus:1

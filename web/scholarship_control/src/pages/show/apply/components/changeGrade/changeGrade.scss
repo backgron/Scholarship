@@ -1,4 +1,10 @@
 .changeGrade{
+  .card-container{
+    height: 100%;
+  }
+  .adm-tabs{
+    height: 100%;
+  }
   .card{
     margin-bottom: 5px;
     .adm-card-body{
@@ -13,5 +19,12 @@
       }
     }
     display: flex;
+  }
+  .subBtn{
+    position:absolute;
+    bottom:30px;
+    width: auto;
+    left: 5px;
+    right:5px;
   }
 }

@@ -1,39 +1,39 @@
-let adr = 'http://localhost:3000/'
-// 系统接口
-let TESTS = adr + 'tests'
-//登录
-let LOGIN = adr + 'login'
+/** @format */
 
+let adr = "http://localhost:3000/"
+// 系统接口
+let TESTS = adr + "tests"
+//登录
+let LOGIN = adr + "login"
 
 //管理员接口
-let adminApi = adr + 'admins/'
+let adminApi = adr + "admins/"
 //学生信息管理
-let adminGetStudentInfo = adminApi + 'getStudentInfo'
+let adminGetStudentInfo = adminApi + "getStudentInfo"
 //重置学生密码接口
-let adminResetStuPassword = adminApi + 'resetStuPassword'
+let adminResetStuPassword = adminApi + "resetStuPassword"
 //条件 查询学生
-let adminFindStuBy = adminApi + 'findStuBy'
+let adminFindStuBy = adminApi + "findStuBy"
 //根据_id查询学生详情
-let adminGetStudentDetail = adminApi + 'getStudentDetail'
+let adminGetStudentDetail = adminApi + "getStudentDetail"
 // 导员信息管理
-let adminGetCounselorInfo = adminApi + 'getCounselorInfo'
+let adminGetCounselorInfo = adminApi + "getCounselorInfo"
 //条件 查询导员
-let adminFindCounselorBy = adminApi + 'findCounselorBy'
+let adminFindCounselorBy = adminApi + "findCounselorBy"
 //重置导员密码
-let adminResetCounselorPassword = adminApi + 'resetCounselorPassword'
+let adminResetCounselorPassword = adminApi + "resetCounselorPassword"
 // 根据_id查询导员详情
-let adminGetCounselorDetail = adminApi + 'getCounselorsDetail'
-
+let adminGetCounselorDetail = adminApi + "getCounselorsDetail"
 
 //导员接口
-let counselorApi = adr + 'counselors/'
-let counselorGetStudentInfo = counselorApi + 'getStudentInfo'
+let counselorApi = adr + "counselors/"
+let counselorGetStudentInfo = counselorApi + "getStudentInfo"
 
 //成绩接口
-let gradeApi = adr + 'grades/'
-let findAllGradeApply = gradeApi + 'findAllGradeApply'
-
-
+let gradeApi = adr + "grades/"
+let findAllGradeApply = gradeApi + "findAllGradeApply"
+let findStuAllGradesById = gradeApi + "findStuAllGradesById"
+let studentChangeGrade = gradeApi + "studentChangeGrade"
 
 export default {
   //系统接口
@@ -55,5 +55,6 @@ export default {
 
   //成绩接口
   findAllGradeApply,
-
+  findStuAllGradesById,
+  studentChangeGrade,
 }
