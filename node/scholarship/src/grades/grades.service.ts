@@ -23,7 +23,7 @@ export class GradesService {
 
   async findAllGradeApply() {
     return await this.gradeModel.find(
-      { classStatus: { $ne: false } },
+      { classStatus: { $ne: undefined } },
       {
         stuName: 1,
         className: 1,
