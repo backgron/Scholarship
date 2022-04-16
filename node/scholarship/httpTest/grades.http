@@ -10,6 +10,23 @@ Content-Type: application/json
 {
   "stu": "62020a7963961d06f09382c9",
   "stuName": "张三11",
-  "className":"Java",
+  "className":"Vue",
   "classGrade":"60"
+}
+
+### 根据学生id查找所有成绩
+POST http://localhost:3000/grades/findStuAllGradesById
+Content-Type: application/json
+
+{
+  "stu": "62020a7963961d06f09382c9"
+}
+
+### 学生修改成绩申请
+POST http://localhost:3000/grades/studentChangeGrade
+Content-Type: application/json
+
+{
+  "grade_id": "625835230bc19b48dadfe4f5",
+  "newGrade":"99"
 }
