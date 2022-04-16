@@ -1,30 +1,43 @@
-import axios from 'axios'
+/** @format */
+
+import axios from "axios"
 let fetch = {
-  post: '',
-  get: ''
+  post: "",
+  get: "",
 }
+
+axios.defaults.withCredentials = true
 
 fetch.get = function (api, data) {
   return new Promise((resolve, reject) => {
-    axios.get(api, data).then(function (res) {
-      resolve(res)
-    }).catch(function (error) {
-      Promise.reject(error)
-    })
+    axios
+      .get(api, data)
+      .then(function (res) {
+        resolve(res)
+      })
+      .catch(function (error) {
+        Promise.reject(error)
+      })
   })
 }
 
-fetch.post = function (api, data, header = {
-  'Content-Type': 'application/json'
-}) {
+fetch.post = function (
+  api,
+  data,
+  header = {
+    "Content-Type": "application/json",
+  }
+) {
   return new Promise((resolve, reject) => {
-    axios.post(api, data, header).then(function (res) {
-      resolve(res)
-    }).catch(function (error) {
-      reject(error.response)
-    })
+    axios
+      .post(api, data, header)
+      .then(function (res) {
+        resolve(res)
+      })
+      .catch(function (error) {
+        reject(error.response)
+      })
   })
 }
-
 
 export default fetch

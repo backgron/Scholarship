@@ -1,6 +1,6 @@
 /** @format */
 
-let adr = "http://localhost:3000/"
+let adr = "/api"
 // 系统接口
 let TESTS = adr + "tests"
 //登录
@@ -35,6 +35,10 @@ let findAllGradeApply = gradeApi + "findAllGradeApply"
 let findStuAllGradesById = gradeApi + "findStuAllGradesById"
 let studentChangeGrade = gradeApi + "studentChangeGrade"
 
+//学生接口
+let studentAPI = adr + "students/"
+let createAward = studentAPI + "createAward"
+
 export default {
   //系统接口
   LOGIN,
@@ -57,4 +61,7 @@ export default {
   findAllGradeApply,
   findStuAllGradesById,
   studentChangeGrade,
+
+  //学生接口
+  createAward,
 }

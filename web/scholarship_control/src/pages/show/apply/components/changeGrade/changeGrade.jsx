@@ -80,7 +80,7 @@ export default () => {
             onClick={() => {
               studentChangeGrade({
                 params: {
-                  grade_id: basicColumns[0][selectId],
+                  grade_id: basicColumns[0][selectId]._id,
                   newGrade,
                 },
                 success: (res) => {

@@ -3,6 +3,7 @@ import { useState } from "react"
 import { Tabs } from "antd-mobile"
 import ChangeGrade from "./components/changeGrade/changeGrade"
 import "./index.scss"
+import AwardApply from "./components/awardApply/awardApply"
 const { TabPane } = Tabs
 export default () => {
   const [tab, setTab] = useState(1)
@@ -22,7 +23,7 @@ export default () => {
             <ChangeGrade />
           </Tabs.Tab>
           <Tabs.Tab title="奖金申请" key="3">
-            蚂蚁
+            <AwardApply />
           </Tabs.Tab>
         </Tabs>
       </div>

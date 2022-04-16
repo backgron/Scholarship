@@ -144,9 +144,20 @@ export function findStuAllGradesById(opt) {
     })
 }
 
-//根据学生申请修改成绩
+//根据学生ID申请修改成绩
 export function studentChangeGrade(opt) {
   Fetch.post(config.studentChangeGrade, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}
+
+//学生申请奖学金
+export function createAward(opt) {
+  Fetch.post(config.createAward, opt.params, header)
     .then(function (data) {
       opt.success && opt.success(data)
     })
