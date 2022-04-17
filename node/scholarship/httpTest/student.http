@@ -22,6 +22,17 @@ Content-Type: application/json
 GET  http://localhost:3000/students/getAllGrade?stuid=20181506210411
 
 
+### 学生查看自己的奖学金申请情况
+GET  http://localhost:3000/students/findsAwardCondition
+
+### 学生查看自己成绩请情况
+GET  http://localhost:3000/students/findGradeApply
+
+
+### 学生查看自己的所有申请
+GET http://localhost:3000/students/findAllApply
+
+
 //   db.students.find({"stuId":"20181506210411"})
 //   db.students.update({"stuId":"20181506210411"},{$set:{awards:[]}})
 //   db.awards.drop()

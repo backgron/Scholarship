@@ -64,4 +64,19 @@ export class StudentsController {
           message: '学生不存在',
         };
   }
+
+  @Get('/findsAwardCondition')
+  async findsAwardCondition(@Session() session: any) {
+    return await this.studentsService.findsAwardApply(session);
+  }
+
+  @Get('/findGradeApply')
+  async findGradeApply(@Session() session: any) {
+    return await this.studentsService.findGradeApply(session);
+  }
+
+  @Get('/findAllApply')
+  async findAllApply(@Session() session: any) {
+    return await this.studentsService.findAllApply(session);
+  }
 }

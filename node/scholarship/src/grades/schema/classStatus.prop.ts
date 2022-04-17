@@ -1,22 +1,25 @@
-import { Prop } from "@nestjs/mongoose"
-import { IsEnum, IsString } from "class-validator"
-import { Types } from "mongoose"
+import { Prop } from '@nestjs/mongoose';
+import { IsEnum, IsString } from 'class-validator';
+import { Types } from 'mongoose';
 
 export class ClassStatus {
   @Prop({ type: String })
-  newGrade: string
+  newGrade: string;
 
   @Prop({ type: Types.ObjectId, ref: 'Counselor' })
-  counselor: Types.ObjectId
+  counselor: Types.ObjectId;
 
   @Prop({ type: String })
-  counselorName: string
+  counselorName: string;
 
   @Prop({ type: Types.ObjectId, ref: 'Admin' })
-  admin: Types.ObjectId
+  admin: Types.ObjectId;
 
   @Prop({ type: String })
-  adminName: string
+  applyTime: string;
+
+  @Prop({ type: String })
+  adminName: string;
 
   @IsEnum({
     fail: -1,
@@ -25,5 +28,5 @@ export class ClassStatus {
     admin: 2,
   })
   @Prop()
-  status: number
+  status: number;
 }

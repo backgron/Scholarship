@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, Session } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Mongoose } from 'mongoose';
 import { CreateStudentDto } from './dto/create-student.dto';
@@ -30,17 +30,8 @@ export class StudentsService {
       {
         _id: 1,
         password: 0,
-        awards: 0,
       },
     );
-    // .populate([{
-    //   path: 'grades', select: {
-    //     _id: 1,
-    //     className: 1,
-    //     classGrade: 1,
-    //     classStatus:1
-    //   }
-    // }])
 
     return stu[0];
   }
@@ -54,7 +45,6 @@ export class StudentsService {
   async login(stuId: string, password: string) {
     let stu = await this.findByStuId(stuId);
     stu = await this.findByObjectId(stu._id.toHexString());
-    console.log(stu);
     if (stu && (await isPassword(stu, this.studentModel, password))) {
       return stu;
     }
@@ -110,5 +100,45 @@ export class StudentsService {
         _class: item.position['_class'],
       };
     });
+  }
+
+  // 查询自己的奖学金申请
+  async findsAwardApply(session: any) {
+    console.log(session.user._id);
+    let stuAwardsApply = (await this.findByObjectId(session.user._id)).populate(
+      [
+        {
+          path: 'awards',
+        },
+      ],
+    );
+    return (await stuAwardsApply).awards;
+  }
+
+  // 查询自己的成绩申请
+  async findGradeApply(session: any) {
+    let stuGradesApply = (await this.findByObjectId(session.user._id)).populate(
+      [
+        {
+          path: 'grades',
+        },
+      ],
+    );
+    let grades = (await stuGradesApply).grades.filter(
+      (item) => item.classStatus !== undefined,
+    );
+    return grades;
+  }
+
+  async findAllApply(session: any) {
+    let grades = await this.findGradeApply(session);
+    let awards = await this.findsAwardApply(session);
+
+    let applys = [...grades, ...awards].sort((a, b) => {
+      let timeA = a.applyTime || a.classStatus.applyTime;
+      let timeB = b.applyTime || b.classStatus.applyTime;
+      return timeA > timeB ? -1 : 1;
+    });
+    return applys;
   }
 }

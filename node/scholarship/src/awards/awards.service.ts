@@ -14,10 +14,9 @@ export class AwardsService {
     private readonly AwardsModule: Model<AwardDocument>,
   ) {}
 
+  //创建一个奖学金申请
   async createAward(award: CreateAwardDto, session: any) {
-    console.log('session', session.user);
     let stu = await this.studentsService.findByStuId(session.user.stuId);
-    console.log('stu', stu);
     let admin = session.stu_admin;
     let counselor = session.stu_counselor;
     if (session.user) {
@@ -41,5 +40,10 @@ export class AwardsService {
 
       stu.save();
     }
+  }
+
+  //查找奖学金申请记录
+  async findsAwardCondition(awardCondition: any) {
+    return await this.AwardsModule.find({ ...awardCondition });
   }
 }

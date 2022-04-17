@@ -10,7 +10,7 @@ Content-Type: application/json
 {
   "stu": "62020a7963961d06f09382c9",
   "stuName": "张三11",
-  "className":"Vue",
+  "className":"AntdPro",
   "classGrade":"60"
 }
 

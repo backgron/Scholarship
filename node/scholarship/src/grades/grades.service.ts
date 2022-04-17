@@ -43,12 +43,11 @@ export class GradesService {
       let gra = await this.gradeModel.findOne({
         _id: new ObjectId(grade.grade_id),
       });
-      console.log(gra);
-
       gra.classStatus = {
         newGrade: grade.newGrade,
         admin: admin._id,
         adminName: admin.name,
+        applyTime: new Date().getTime().toString(),
         counselor: counselor._id,
         counselorName: counselor.name,
         status: 0,
