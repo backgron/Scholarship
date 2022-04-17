@@ -4,6 +4,7 @@ import { Tabs } from "antd-mobile"
 import ChangeGrade from "./components/changeGrade/changeGrade"
 import "./index.scss"
 import AwardApply from "./components/awardApply/awardApply"
+import AllApply from "./components/allApply/allApply"
 const { TabPane } = Tabs
 export default () => {
   const [tab, setTab] = useState(1)
@@ -11,13 +12,9 @@ export default () => {
   return (
     <div className="applyBox">
       <div className="card-container">
-        <Tabs
-          activeLineMode={false}
-          activeKey={tab}
-          onChange={(res) => setTab(res)}
-        >
+        <Tabs activeLineMode={false} defaultActiveKey="1">
           <Tabs.Tab title="申请记录" key="1">
-            菠萝
+            <AllApply />
           </Tabs.Tab>
           <Tabs.Tab title="成绩修改" key="2">
             <ChangeGrade />

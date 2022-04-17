@@ -165,3 +165,14 @@ export function createAward(opt) {
       opt.error && opt.error(error)
     })
 }
+
+// 学生查询自己的申请信息
+export function findAllApply(opt) {
+  Fetch.get(config.findAllApply, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}

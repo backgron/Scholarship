@@ -38,6 +38,7 @@ let studentChangeGrade = gradeApi + "studentChangeGrade"
 //学生接口
 let studentAPI = adr + "students/"
 let createAward = studentAPI + "createAward"
+let findAllApply = studentAPI + "findAllApply"
 
 export default {
   //系统接口
@@ -64,4 +65,5 @@ export default {
 
   //学生接口
   createAward,
+  findAllApply,
 }
