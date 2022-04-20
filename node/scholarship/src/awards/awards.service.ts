@@ -16,7 +16,8 @@ export class AwardsService {
 
   //创建一个奖学金申请
   async createAward(award: CreateAwardDto, session: any) {
-    let stu = await this.studentsService.findByStuId(session.user.stuId);
+    console.log(session);
+    let stu = await this.studentsService.findByObjectId(session.user._id);
     let admin = session.stu_admin;
     let counselor = session.stu_counselor;
     if (session.user) {

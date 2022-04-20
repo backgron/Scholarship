@@ -79,4 +79,22 @@ export class StudentsController {
   async findAllApply(@Session() session: any) {
     return await this.studentsService.findAllApply(session);
   }
+
+  @Get('/findAllGrades')
+  async findAllGrades(@Session() session: any) {
+    return await this.studentsService.findAllGrades(session);
+  }
+
+  @Get('/findAllActions')
+  async findAllActions(@Session() session: any) {
+    return await this.studentsService.findAllActions(session);
+  }
+
+  @Post('/upDateInfo')
+  async upDateInfo(
+    @Body() updateStudentDto: UpdateStudentDto,
+    @Session() session: any,
+  ) {
+    return await this.studentsService.upDateInfo(updateStudentDto, session);
+  }
 }

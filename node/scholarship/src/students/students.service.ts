@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, Session } from '@nestjs/common';
+import { BadRequestException, Body, Injectable, Session } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Mongoose } from 'mongoose';
 import { CreateStudentDto } from './dto/create-student.dto';
@@ -30,6 +30,8 @@ export class StudentsService {
       {
         _id: 1,
         password: 0,
+        grades: 0,
+        awards: 0,
       },
     );
 
@@ -44,8 +46,8 @@ export class StudentsService {
   // 学生登录
   async login(stuId: string, password: string) {
     let stu = await this.findByStuId(stuId);
-    stu = await this.findByObjectId(stu._id.toHexString());
-    if (stu && (await isPassword(stu, this.studentModel, password))) {
+    let stuObj = await this.findByObjectId(stu._id.toHexString());
+    if (stuObj && (await isPassword(stuObj, this.studentModel, password))) {
       return stu;
     }
   }
@@ -104,7 +106,6 @@ export class StudentsService {
 
   // 查询自己的奖学金申请
   async findsAwardApply(session: any) {
-    console.log(session.user._id);
     let stuAwardsApply = (await this.findByObjectId(session.user._id)).populate(
       [
         {
@@ -130,6 +131,7 @@ export class StudentsService {
     return grades;
   }
 
+  //查询自己的所有申请
   async findAllApply(session: any) {
     let grades = await this.findGradeApply(session);
     let awards = await this.findsAwardApply(session);
@@ -140,5 +142,38 @@ export class StudentsService {
       return timeA > timeB ? -1 : 1;
     });
     return applys;
+  }
+
+  // 查询自己的所有成绩
+  async findAllGrades(session: any) {
+    let grades = (await this.findByObjectId(session.user._id)).populate([
+      {
+        path: 'grades',
+        select: {
+          classStatus: 0,
+        },
+      },
+    ]);
+    return (await grades).grades;
+  }
+
+  // 查询自己的奖惩信息
+  async findAllActions(session: any) {
+    let actions = (await this.findByObjectId(session.user._id)).populate([
+      {
+        path: 'actions',
+      },
+    ]);
+    return (await actions).actions;
+  }
+
+  //修改自己的基本信息
+  async upDateInfo(updateStudentDto: UpdateStudentDto, session: any) {
+    let res = await this.studentModel.updateOne(
+      { _id: new ObjectId(session.user._id) },
+      updateStudentDto,
+    );
+    session.user = await this.findByStuId(session.user.stuId);
+    return session.user;
   }
 }

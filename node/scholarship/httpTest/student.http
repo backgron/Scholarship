@@ -32,7 +32,31 @@ GET  http://localhost:3000/students/findGradeApply
 ### 学生查看自己的所有申请
 GET http://localhost:3000/students/findAllApply
 
+### 查看自己的所有成绩
+GET http://localhost:3000/students/findAllGrades
+
+
+### 查看自己的奖惩
+GET http://localhost:3000/students/findAllActions
+
+### 修改自己的基本信息
+POST http://localhost:3000/students/upDateInfo
+Content-Type: application/json
+
+{
+  "name":"张三11",
+  "age":19,
+  "position":{
+    "academy":"计算机学院",
+    "major":"计算机专业",
+    "_class":"18计科4班"
+  },
+  "phone":175394432
+}
 
 //   db.students.find({"stuId":"20181506210411"})
 //   db.students.update({"stuId":"20181506210411"},{$set:{awards:[]}})
 //   db.awards.drop()
+
+### 测试鉴权
+GET http://localhost:3000/who
