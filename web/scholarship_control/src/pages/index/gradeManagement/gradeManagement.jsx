@@ -1,20 +1,28 @@
+/** @format */
 
-import { Table, Popconfirm, Button, Input, Form, message, Select, Tag } from 'antd'
-import { useState } from 'react'
-import { useEffect } from 'react'
-import './gradeManagement.scss'
-import { findAllGradeApply } from '../../../common/fetch'
+import {
+  Table,
+  Popconfirm,
+  Button,
+  Input,
+  Form,
+  message,
+  Select,
+  Tag,
+} from "antd"
+import { useState } from "react"
+import { useEffect } from "react"
+import "./gradeManagement.scss"
+import { findAllGradeApply } from "../../../common/fetch"
 
 const { Option } = Select
 
 export default (props) => {
-
   let [data, setData] = useState([])
   const [visible, setVisible] = useState(false)
   const [counselor, setCounselor] = useState(null)
 
   const confirm = (text) => {
-    console.log(text)
     return new Promise((reslove, reject) => {
       // adminResetCounselorPassword({
       //   params: {
@@ -34,16 +42,13 @@ export default (props) => {
     })
   }
 
-
   useEffect(() => {
-    console.log(1111)
     findAllGradeApply({
       success: function (res) {
-        setData(res.data.map(item => ({ ...item, ...item.classStatus })))
-      }
+        setData(res.data.map((item) => ({ ...item, ...item.classStatus })))
+      },
     })
   }, [])
-
 
   const onClick = (counselor_id) => {
     setVisible(true)
@@ -75,51 +80,52 @@ export default (props) => {
 
   const columns = [
     {
-      title: '学生姓名',
-      dataIndex: 'stuName',
+      title: "学生姓名",
+      dataIndex: "stuName",
     },
     {
-      title: '课程名称',
-      dataIndex: 'className',
+      title: "课程名称",
+      dataIndex: "className",
     },
     {
-      title: '现成绩',
-      dataIndex: 'classGrade',
-    }, {
-      title: '修改成绩',
-      dataIndex: 'newGrade',
-    }, {
-      title: '一级审批人',
-      dataIndex: 'counselorName',
-    }, {
-      title: '二级审批人',
-      dataIndex: 'adminName',
-    }, {
-      title: '审批进度',
-      dataIndex: 'status',
+      title: "现成绩",
+      dataIndex: "classGrade",
+    },
+    {
+      title: "修改成绩",
+      dataIndex: "newGrade",
+    },
+    {
+      title: "一级审批人",
+      dataIndex: "counselorName",
+    },
+    {
+      title: "二级审批人",
+      dataIndex: "adminName",
+    },
+    {
+      title: "审批进度",
+      dataIndex: "status",
       render: (text, record) => (
         <div>
-          {
-            ((status = record.status) => {
-              if (status === -1) {
-                return <Tag color='#f50'>已驳回</Tag>
-              } else if (status === 0) {
-                return <Tag color='#108ee9'>学生已申请</Tag>
-              } else if (status === 1) {
-                return <Tag color='#108ee9'>辅导员已审批</Tag>
-              } else if (status = 2) {
-                return <Tag color='#87d068'>申请已通过</Tag>
-              }
-            })()
-          }
+          {((status = record.status) => {
+            if (status === -1) {
+              return <Tag color="#f50">已驳回</Tag>
+            } else if (status === 0) {
+              return <Tag color="#108ee9">学生已申请</Tag>
+            } else if (status === 1) {
+              return <Tag color="#108ee9">辅导员已审批</Tag>
+            } else if ((status = 2)) {
+              return <Tag color="#87d068">申请已通过</Tag>
+            }
+          })()}
         </div>
       ),
     },
     {
-      title: '操作',
-      dataIndex: '_id',
+      title: "操作",
+      dataIndex: "_id",
       render: (text, record) => (
-
         <div>
           <Popconfirm
             title="确定要通过申请?"
@@ -127,7 +133,9 @@ export default (props) => {
             okText="通过"
             cancelText="取消"
           >
-            <Button type="primary" className='pass_btn' size={'small'}>通过</Button>
+            <Button type="primary" className="pass_btn" size={"small"}>
+              通过
+            </Button>
           </Popconfirm>
           <Popconfirm
             title="确定要驳回申请?"
@@ -135,38 +143,28 @@ export default (props) => {
             okText="驳回"
             cancelText="取消"
           >
-            <Button type="danger" className='resetBtn' size={'small'}>驳回</Button>
+            <Button type="danger" className="resetBtn" size={"small"}>
+              驳回
+            </Button>
           </Popconfirm>
         </div>
-
       ),
     },
   ]
 
   return (
-    <div className='gradeManagement'>
-      <div className='search_box'>
-        <Form layout="inline" onFinish={findBy} className='search_form'>
-          <Form.Item
-            name="stuName"
-            label='姓名'
-          >
+    <div className="gradeManagement">
+      <div className="search_box">
+        <Form layout="inline" onFinish={findBy} className="search_form">
+          <Form.Item name="stuName" label="姓名">
             <Input placeholder="按姓名查找" />
           </Form.Item>
-          <Form.Item
-            name="className"
-            label='课程'
-          >
-            <Input
-              placeholder="按课程找查"
-            />
+          <Form.Item name="className" label="课程">
+            <Input placeholder="按课程找查" />
           </Form.Item>
-          <Form.Item
-            name="status"
-            label='审批进度'
-          >
+          <Form.Item name="status" label="审批进度">
             <Select defaultValue="所有申请" style={{ width: 120 }}>
-              <Option value=''>所有申请</Option>
+              <Option value="">所有申请</Option>
               <Option value="0">已申请</Option>
               <Option value="1">导员已审批</Option>
               <Option value="2">管理员已审批</Option>
@@ -175,20 +173,28 @@ export default (props) => {
           </Form.Item>
 
           <Form.Item>
-            <Button className='resetBtn' htmlType="submit" style={{ float: 'right', marginRight: '30px' }}>查找</Button>
+            <Button
+              className="resetBtn"
+              htmlType="submit"
+              style={{ float: "right", marginRight: "30px" }}
+            >
+              查找
+            </Button>
           </Form.Item>
         </Form>
       </div>
 
       <hr />
 
-      <div className='table'>
-        <Table columns={columns}
+      <div className="table">
+        <Table
+          columns={columns}
           dataSource={data}
-          size='small'
-          rowKey={'_id'}
-          scroll={{ y: '300px' }}
-          pagination={{ position: ['bottomCenter'], total: data.length }} />
+          size="small"
+          rowKey={"_id"}
+          scroll={{ y: "300px" }}
+          pagination={{ position: ["bottomCenter"], total: data.length }}
+        />
       </div>
     </div>
   )

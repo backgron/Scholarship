@@ -49,7 +49,6 @@ export default () => {
           type: "set",
           user: data,
         })
-        console.log(data)
         if (
           data &&
           (data.userType === "admin" || data.userType === "counselor")

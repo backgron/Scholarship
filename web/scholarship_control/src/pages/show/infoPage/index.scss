@@ -1,0 +1,19 @@
+$maincolor: #3d7bc7;
+.InfoPageBox{
+  height: 100%;
+  overflow: auto;
+  .navBar{
+    height: 45px;
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(hsl(212, 62%, 53%),hsl(214, 68%, 76%));
+    color:#fff;
+  }
+  .innerHTML{
+    height: 100%;
+    box-sizing: border-box;
+    padding-top:45px;
+  }
+}

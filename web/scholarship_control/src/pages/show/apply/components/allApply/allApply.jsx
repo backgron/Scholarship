@@ -116,10 +116,8 @@ export default () => {
         let sortData = res.data.sort((a, b) => {
           let timeA = a.className ? a.classStatus.applyTime : a.applyTime
           let timeB = b.className ? b.classStatus.applyTime : b.applyTime
-          console.log(timeA, timeB)
-          return timeA > timeB ? 1 : -1
+          return timeA > timeB ? -1 : 1
         })
-        console.log(sortData)
         setData(sortData)
       },
     })

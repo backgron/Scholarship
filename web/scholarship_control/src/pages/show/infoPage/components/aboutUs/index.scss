@@ -1,0 +1,24 @@
+.aboutUsBox{
+  height: 100%;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .mainBox{
+    height: 380px;
+    .imageBox{
+      width: 90px;
+      height: 90px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom:10px;
+      img{
+        width: 90px;
+        height: 90px;
+      }
+    }
+    .infoItem{
+      
+    }
+  }
+}

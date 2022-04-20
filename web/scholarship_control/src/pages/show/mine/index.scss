@@ -1,0 +1,67 @@
+$maincolor: #3d7bc7;
+.mineBox{
+  position:relative;
+  height: 100%;
+  .mineInfo{
+    height: 75px;
+    margin:0 5px;
+    display: flex;
+    align-items: center;
+    position:relative;
+
+    .adm-card-body{
+      padding: 0;
+      display: flex;
+    }
+    .imageBox{
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      border-radius: 5px;
+      img{
+        width: 60px;
+        height: 60px;
+      }
+    }
+    .infoBox{
+      margin-left:10px;
+      h3{
+        font-weight: 700;
+      }
+      span{
+        font-size: 12px;
+      }
+    }
+    .mineIcon{
+      position:absolute;
+      right:15px;
+      top:27px;
+      font-size: 18px;
+      color:$maincolor;
+    }
+  }
+  .mineItem{
+    border-radius: 0;
+    height: 40px;
+    margin:10px 0;
+    display: flex;
+    align-items: center;
+    .adm-card-body{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+  }
+
+  .logout{
+    position:absolute;
+    width: 100%;
+    bottom:30px;
+    .adm-card-body{
+      text-align: center;
+    }
+
+  }
+}

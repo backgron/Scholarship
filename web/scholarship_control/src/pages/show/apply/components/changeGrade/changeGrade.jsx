@@ -13,7 +13,6 @@ const gradeColumns = [[]]
 for (let i = 0; i < 101; i++) {
   gradeColumns[0].push({ label: i, value: i })
 }
-console.log(gradeColumns)
 
 export default () => {
   const [{ user, userType }, setUserInfo] = useSessionStorageState("userInfo")
