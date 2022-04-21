@@ -21,7 +21,6 @@ export default () => {
   const location = useLocation()
 
   const InnerHTML = InnerHTMLType[location.state.pageType]
-  console.log(InnerHTML)
 
   return (
     <div className="InfoPageBox">

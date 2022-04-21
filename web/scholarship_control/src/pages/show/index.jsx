@@ -6,9 +6,8 @@ import {
   UserOutlined,
 } from "@ant-design/icons"
 import { Outlet, useNavigate } from "react-router-dom"
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import "./index.scss"
-import { userContext } from "../../app"
 
 export default () => {
   const [isCurrent, setIsCurrent] = useState("/home")

@@ -6,7 +6,6 @@ import { login } from "../../common/fetch"
 import { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { userContext } from "../../app"
-import { useEffect } from "react"
 import { UserOutlined, LockOutlined } from "@ant-design/icons/lib/icons"
 import { useSessionStorageState } from "ahooks"
 
