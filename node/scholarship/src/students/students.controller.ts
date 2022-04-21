@@ -16,6 +16,7 @@ import { AwardsService } from 'src/awards/awards.service';
 import { CreateAwardDto } from 'src/awards/dto/create-award.dto';
 import { GradesService } from 'src/grades/grades.service';
 import { ChangeGradeDto } from 'src/grades/dto/student-change-grade.dto';
+import { RePasswordDto } from './dto/repassword-student.dto';
 
 @Controller('students')
 export class StudentsController {
@@ -96,5 +97,17 @@ export class StudentsController {
     @Session() session: any,
   ) {
     return await this.studentsService.upDateInfo(updateStudentDto, session);
+  }
+
+  @Post('/changeStuPassword')
+  async changeStuPassword(
+    @Body() rePasswordDto: RePasswordDto,
+    @Session() session: any,
+  ) {
+    return this.studentsService.changeStuPassword(
+      session.user.stuId,
+      rePasswordDto.oldPassword,
+      rePasswordDto.newPassword,
+    );
   }
 }

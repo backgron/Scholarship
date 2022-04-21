@@ -56,8 +56,16 @@ export class StudentsService {
   async changeStuPassword(stuId: string, pre: string, next: string) {
     let stu = await this.findByStuId(stuId);
 
-    if (stu && (await changePassword(stu, this.studentModel, pre, next))) {
-      return stu;
+    if (await changePassword(stu, this.studentModel, pre, next)) {
+      return {
+        code: 200,
+        message: '密码修改成功',
+      };
+    } else {
+      return {
+        code: 401,
+        message: '旧密码错误',
+      };
     }
   }
 
