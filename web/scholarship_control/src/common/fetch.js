@@ -176,3 +176,25 @@ export function findAllApply(opt) {
       opt.error && opt.error(error)
     })
 }
+
+// 学生查询自己的成绩信息
+export function findAllGrades(opt) {
+  Fetch.get(config.findAllGrades, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}
+
+// 学生查询自己的成绩信息
+export function findAllActions(opt) {
+  Fetch.get(config.findAllActions, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}

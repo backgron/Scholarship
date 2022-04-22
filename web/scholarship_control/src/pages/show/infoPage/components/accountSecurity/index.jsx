@@ -43,7 +43,7 @@ export default () => {
         }
       >
         <Form.Item label="学号">
-          <Input defaultValue={stuId} readOnly />
+          <Input defaultValue={stuId} readOnly autoComplete="username" />
         </Form.Item>
         <Form.Item
           label="旧密码"
@@ -51,11 +51,16 @@ export default () => {
           rules={[
             {
               validator: required,
-              message: "旧密码不能为空!",
+              message: "旧密码不能为空！",
             },
           ]}
         >
-          <Input placeholder="请输入旧密码" clearable type="password" />
+          <Input
+            placeholder="请输入旧密码"
+            autoComplete="current-password"
+            clearable
+            type="password"
+          />
         </Form.Item>
         <Form.Item
           label="新密码"
@@ -63,18 +68,19 @@ export default () => {
           rules={[
             {
               validator: required,
-              message: "新密码不能为空!",
+              message: "新密码不能为空！",
             },
             {
               validator: passwordType,
-              message: "密码长度不得小于8位",
+              message: "密码长度不得小于8位！",
             },
           ]}
         >
           <Input
-            placeholder="请输入新密码"
+            placeholder="8位以上新密码"
             onChange={(v) => setNewPassword(v)}
             clearable
+            autoComplete="new-password"
             type="password"
           />
         </Form.Item>
@@ -84,15 +90,20 @@ export default () => {
           rules={[
             {
               validator: rePassword,
-              message: "两次输入密码不一致",
+              message: "两次输入密码不一致！",
             },
             {
               validator: required,
-              message: "请重新输入密码",
+              message: "请重新输入密码！",
             },
           ]}
         >
-          <Input placeholder="新密码确认" clearable type="password" />
+          <Input
+            placeholder="新密码确认"
+            autoComplete="new-password"
+            clearable
+            type="password"
+          />
         </Form.Item>
       </Form>
     </div>
