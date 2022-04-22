@@ -41,6 +41,8 @@ let createAward = studentAPI + "createAward"
 let findAllApply = studentAPI + "findAllApply"
 let findAllGrades = studentAPI + "findAllGrades"
 let findAllActions = studentAPI + "findAllActions"
+let changeStuPassword = studentAPI + "changeStuPassword"
+let upDateInfo = studentAPI + "upDateInfo"
 
 export default {
   //系统接口
@@ -70,4 +72,6 @@ export default {
   findAllApply,
   findAllGrades,
   findAllActions,
+  changeStuPassword,
+  upDateInfo,
 }

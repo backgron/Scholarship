@@ -1,0 +1,34 @@
+.mineInfoBox{
+  height: 100%;
+  .cardsBox{
+    background-color: #eae7e6;
+  }
+
+  .subBtn{
+    margin:20px 10px;
+    width: calc(100% - 20px);
+  }
+
+  .infoItem{
+    border-radius: 0;
+    height: 40px;
+    margin:5px 0;
+    display: flex;
+    align-items: center;
+    div{
+      color:#666;
+    }
+    .keySpan{
+      color:#000;
+    }
+    .valueSpan{
+      margin-right:5px;
+    }
+    .adm-card-body{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+  }
+}

@@ -198,3 +198,25 @@ export function findAllActions(opt) {
       opt.error && opt.error(error)
     })
 }
+
+//学生修改自己密码
+export function changeStuPassword(opt) {
+  Fetch.post(config.changeStuPassword, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}
+
+//学生修改自己基本信息
+export function upDateInfo(opt) {
+  Fetch.post(config.upDateInfo, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}

@@ -17,7 +17,7 @@ export default () => {
   }, [])
 
   return (
-    <div className="mineGradesBox">
+    <div className="mineRewardsBox">
       <div className="mainBox">
         {actions
           ? actions.map((item, index) => (

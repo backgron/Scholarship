@@ -1,7 +1,9 @@
 /** @format */
 
+import { message } from "antd"
 import { Input, Form, Button } from "antd-mobile"
 import { useState } from "react"
+import { changeStuPassword } from "../../../../../common/fetch"
 import "./index.scss"
 
 export default () => {
@@ -34,7 +36,18 @@ export default () => {
       <Form
         layout="horizontal"
         onFinish={(value) => {
-          console.log("验证成功", value)
+          changeStuPassword({
+            params: {
+              oldPassword: value.oldPassword,
+              newPassword: value.newPassword,
+            },
+            success: (res) => {
+              if (res.data.code > 399) {
+                return message.error(res.data.message)
+              }
+              message.success(res.data.message)
+            },
+          })
         }}
         footer={
           <Button block type="submit" color="primary" size="large">
