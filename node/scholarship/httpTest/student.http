@@ -44,7 +44,7 @@ POST http://localhost:3000/students/upDateInfo
 Content-Type: application/json
 
 {
-  "name":"张三11",
+  "name":"backgron",
   "age":19,
   "position":{
     "academy":"计算机学院",
@@ -58,5 +58,14 @@ Content-Type: application/json
 //   db.students.update({"stuId":"20181506210411"},{$set:{awards:[]}})
 //   db.awards.drop()
 
+###  学生自己修改密码
+POST http://localhost:3000/students/changeStuPassword
+Content-Type: application/json
+
+{
+  "oldPassword":"123456",
+  "newPassword":"asdasdasd"
+}
 ### 测试鉴权
 GET http://localhost:3000/who
+

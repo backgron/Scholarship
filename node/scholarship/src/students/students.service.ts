@@ -53,9 +53,9 @@ export class StudentsService {
   }
 
   //学生修改密码
-  async changeStuPassword(stuId: string, pre: string, next: string) {
-    let stu = await this.findByStuId(stuId);
-
+  async changeStuPassword(_id: string, pre: string, next: string) {
+    let stu = await this.findByObjectId(_id);
+    console.log(stu);
     if (await changePassword(stu, this.studentModel, pre, next)) {
       return {
         code: 200,
@@ -182,6 +182,10 @@ export class StudentsService {
       updateStudentDto,
     );
     session.user = await this.findByStuId(session.user.stuId);
-    return session.user;
+    return {
+      user: { user: session.user, userType: 'student' },
+      code: 200,
+      message: '修改成功',
+    };
   }
 }

@@ -105,7 +105,7 @@ export class StudentsController {
     @Session() session: any,
   ) {
     return this.studentsService.changeStuPassword(
-      session.user.stuId,
+      session.user._id,
       rePasswordDto.oldPassword,
       rePasswordDto.newPassword,
     );
