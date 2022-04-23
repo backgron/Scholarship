@@ -1,36 +1,34 @@
-import { Type } from 'class-transformer'
-import { IsArray, IsNotEmpty, IsNumber, IsString, ValidateNested } from 'class-validator'
-import * as mongoose from 'mongoose'
-import { Action } from '../schema/action.prop'
-import { Position } from '../schema/position.prop'
-
+import { Type } from 'class-transformer';
+import { IsArray, IsNumber, IsString, ValidateNested } from 'class-validator';
+import * as mongoose from 'mongoose';
+import { Action } from '../schema/action.prop';
+import { Position } from '../schema/position.prop';
 
 export class CreateStudentDto {
+  @IsString()
+  stuId: string;
 
   @IsString()
-  stuId: string
+  password: string;
 
   @IsString()
-  password: string
-
-  @IsString()
-  name: string
+  name: string;
 
   @IsNumber()
-  age: number
+  age: number;
 
   @ValidateNested({ each: true })
   @Type(() => Position)
-  position: Position
+  position: Position;
 
   @IsNumber()
-  phone: number
+  phone: number;
 
   @IsArray()
   @ValidateNested()
   @Type(() => Action)
-  actions: Array<Action>
+  actions: Array<Action>;
 
-  grades: mongoose.Types.ObjectId
-  awards: mongoose.Types.ObjectId
+  grades: mongoose.Types.ObjectId;
+  awards: mongoose.Types.ObjectId;
 }

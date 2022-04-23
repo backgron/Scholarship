@@ -17,6 +17,7 @@ import { CreateAwardDto } from 'src/awards/dto/create-award.dto';
 import { GradesService } from 'src/grades/grades.service';
 import { ChangeGradeDto } from 'src/grades/dto/student-change-grade.dto';
 import { RePasswordDto } from './dto/repassword-student.dto';
+import { DeleteApplyDto } from './dto/delete-apply.dto';
 
 @Controller('students')
 export class StudentsController {
@@ -33,8 +34,11 @@ export class StudentsController {
 
   @Post('/createAward')
   createAward(@Body() award: CreateAwardDto, @Session() session: any) {
-    console.log('session', session.user);
     this.awardsService.createAward(award, session);
+    return {
+      code: 201,
+      message: '成功申请',
+    };
   }
 
   @Post('/changeGrade')
@@ -112,7 +116,17 @@ export class StudentsController {
   }
 
   @Post('/deleteApply')
-  async deleteApply(@Body('_id') _id: string, @Session() session: any) {
-    return this.awardsService.studentDeleteAward(_id, session.user._id);
+  async deleteApply(@Body() params: DeleteApplyDto, @Session() session: any) {
+    if (params.applyType === 'awardApply') {
+      return this.awardsService.studentDeleteAward(
+        params._id,
+        session.user._id,
+      );
+    } else if (params.applyType === 'gradeApply') {
+      return {
+        code: 404,
+        message: '接口还没写',
+      };
+    }
   }
 }
