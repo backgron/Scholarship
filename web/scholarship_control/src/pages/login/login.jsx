@@ -110,7 +110,10 @@ export default () => {
               onFinish={onFinish}
               autoComplete="off"
               // initialValues={{ 'username': localStorage.getItem('username') }}
-              initialValues={{ username: "20181506210411", password: "123456" }}
+              initialValues={{
+                username: "20181506210411",
+                password: "asdasdasd",
+              }}
             >
               <Form.Item
                 label="用户名"

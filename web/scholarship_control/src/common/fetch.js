@@ -220,3 +220,14 @@ export function upDateInfo(opt) {
       opt.error && opt.error(error)
     })
 }
+
+//学生撤销奖学金申请
+export function deleteApply(opt) {
+  Fetch.post(config.deleteApply, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}

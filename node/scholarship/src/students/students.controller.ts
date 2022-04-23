@@ -110,4 +110,9 @@ export class StudentsController {
       rePasswordDto.newPassword,
     );
   }
+
+  @Post('/deleteApply')
+  async deleteApply(@Body('_id') _id: string, @Session() session: any) {
+    return this.awardsService.studentDeleteAward(_id, session.user._id);
+  }
 }

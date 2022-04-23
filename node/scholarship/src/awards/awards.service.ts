@@ -3,15 +3,14 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { StudentsService } from 'src/students/students.service';
 import { CreateAwardDto } from './dto/create-award.dto';
-import { ApplyStatus } from './schema/applyStatus.prop';
 import { Award, AwardDocument } from './schema/award.schema';
 
 @Injectable()
 export class AwardsService {
   constructor(
-    private readonly studentsService: StudentsService,
     @InjectModel(Award.name)
     private readonly AwardsModule: Model<AwardDocument>,
+    private readonly studentsService: StudentsService,
   ) {}
 
   //创建一个奖学金申请
@@ -46,5 +45,17 @@ export class AwardsService {
   //查找奖学金申请记录
   async findsAwardCondition(awardCondition: any) {
     return await this.AwardsModule.find({ ...awardCondition });
+  }
+
+  //删除一个奖助学金申请
+  async studentDeleteAward(_id: string, stu_id: string) {
+    await this.studentsService.deleteAward(_id, stu_id);
+    let deleteOne = await this.AwardsModule.findOneAndDelete({ _id: _id });
+    console.log(deleteOne);
+    return {
+      code: 200,
+      message: '撤销申请成功',
+      data: deleteOne,
+    };
   }
 }

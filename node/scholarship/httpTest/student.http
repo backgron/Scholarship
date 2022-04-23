@@ -66,6 +66,15 @@ Content-Type: application/json
   "oldPassword":"123456",
   "newPassword":"asdasdasd"
 }
+
+### 学生删除一个申请
+POST http://localhost:3000/students/deleteApply
+Content-Type: application/json
+
+{
+  "_id":"6263be6c6e96ddc537f36580"
+}
+
 ### 测试鉴权
 GET http://localhost:3000/who
 

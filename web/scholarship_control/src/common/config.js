@@ -43,6 +43,7 @@ let findAllGrades = studentAPI + "findAllGrades"
 let findAllActions = studentAPI + "findAllActions"
 let changeStuPassword = studentAPI + "changeStuPassword"
 let upDateInfo = studentAPI + "upDateInfo"
+let deleteApply = studentAPI + "deleteApply"
 
 export default {
   //系统接口
@@ -74,4 +75,5 @@ export default {
   findAllActions,
   changeStuPassword,
   upDateInfo,
+  deleteApply,
 }

@@ -1,14 +1,11 @@
 /** @format */
-import { useState } from "react"
+
 import { Tabs } from "antd-mobile"
 import ChangeGrade from "./components/changeGrade/changeGrade"
 import "./index.scss"
 import AwardApply from "./components/awardApply/awardApply"
 import AllApply from "./components/allApply/allApply"
-const { TabPane } = Tabs
 export default () => {
-  const [tab, setTab] = useState(1)
-
   return (
     <div className="applyBox">
       <div className="card-container">
@@ -24,7 +21,6 @@ export default () => {
           </Tabs.Tab>
         </Tabs>
       </div>
-      ,
     </div>
   )
 }

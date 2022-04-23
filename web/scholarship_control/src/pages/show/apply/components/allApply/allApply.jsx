@@ -1,4 +1,5 @@
 /** @format */
+
 import "./allApply.scss"
 import {
   DeleteFilled,
@@ -8,7 +9,7 @@ import {
 } from "@ant-design/icons"
 import { Dialog, Toast, ProgressCircle } from "antd-mobile"
 import { useEffect, useState } from "react"
-import { findAllApply } from "../../../../../common/fetch"
+import { deleteApply, findAllApply } from "../../../../../common/fetch"
 import { message } from "antd"
 
 const ShowBox = ({ item }) => {
@@ -89,10 +90,18 @@ const ShowBox = ({ item }) => {
               Dialog.confirm({
                 content: "确定撤回申请？（撤回后不可恢复）",
                 onConfirm: async () => {
-                  Toast.show({
-                    icon: "success",
-                    content: "提交成功",
-                    position: "bottom",
+                  deleteApply({
+                    params: {
+                      _id: item._id,
+                      applyType: isClassApply ? "gradeApply" : "awardApply",
+                    },
+                    success: (res) => {
+                      if (res.data.code < 400) {
+                        message.success(res.data.message)
+                      } else {
+                        message.error(res.data.message)
+                      }
+                    },
                   })
                 },
               })

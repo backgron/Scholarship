@@ -10,10 +10,12 @@ import {
   restPassword,
 } from 'src/util/passwordUtil';
 import { ObjectId } from 'mongodb';
+import { AwardsService } from 'src/awards/awards.service';
 @Injectable()
 export class StudentsService {
   constructor(
-    @InjectModel(Student.name) private studentModel: Model<StudentDocument>,
+    @InjectModel(Student.name)
+    private readonly studentModel: Model<StudentDocument>,
   ) {}
 
   create(createStudentDto: CreateStudentDto) {
@@ -187,5 +189,14 @@ export class StudentsService {
       code: 200,
       message: '修改成功',
     };
+  }
+
+  //学生删除一个申请
+  async deleteAward(_id: string, stu_id: string): Promise<any> {
+    let stu = await this.findByObjectId(stu_id);
+    stu.awards = stu.awards.filter((item) => {
+      return item.toString() !== _id;
+    });
+    stu.save();
   }
 }
