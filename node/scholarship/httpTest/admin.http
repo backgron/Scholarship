@@ -55,3 +55,47 @@ Content-Type: application/json
 {
   "_id":"620747ae78504d8d75d542e9"
 }
+
+### 条件查询奖学金申请
+POST http://localhost:3000/admins/findAwardApply
+Content-Type: application/json
+
+{
+  "applyName":"123"
+}
+
+### 通过成绩申请
+POST http://localhost:3000/admins/passGradeApply
+Content-Type: application/json
+
+{
+  "_id":"6264a5587df922e7105299e7"
+}
+
+
+### 通过奖助学金申请
+POST http://localhost:3000/admins/passAwardApply
+Content-Type: application/json
+
+{
+  "_id":"6264bca415b5a041b61cd02e"
+}
+
+### 驳回奖助学金申请
+POST http://localhost:3000/admins/rejectAwardApply
+Content-Type: application/json
+
+{
+  "_id":"6264bca415b5a041b61cd02e"
+}
+
+### 驳回成绩申请
+POST http://localhost:3000/admins/rejectGradeApply
+Content-Type: application/json
+
+{
+  "_id":"6264a5587df922e7105299e7"
+}
+
+
+

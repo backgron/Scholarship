@@ -1,29 +1,27 @@
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
-import * as mongoose from 'mongoose'
-import { ClassStatus } from "./classStatus.prop"
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import * as mongoose from 'mongoose';
+import { ClassStatus } from './classStatus.prop';
 
-export type GradeDocument = Grade & Document
+export type GradeDocument = Grade & Document;
 @Schema()
 export class Grade {
-  @Prop({ type: mongoose.Types.ObjectId ,required:false})
-  _id: mongoose.Types.ObjectId
+  @Prop({ type: mongoose.Types.ObjectId, required: false })
+  _id: mongoose.Types.ObjectId;
 
   @Prop({ type: mongoose.Types.ObjectId, ref: 'Student' })
-  stu: any
+  stu: any;
 
   @Prop({ type: String })
-  stuName: string
+  stuName: string;
 
   @Prop({ type: String })
-  className: string
+  className: string;
 
   @Prop({ type: String })
-  classGrade: string
+  classGrade: string;
 
   @Prop({ type: ClassStatus || Boolean })
-  classStatus: ClassStatus | Boolean
-
+  classStatus: ClassStatus | Boolean;
 }
 
-
-export const GradeSchema = SchemaFactory.createForClass(Grade)
+export const GradeSchema = SchemaFactory.createForClass(Grade);

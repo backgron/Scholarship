@@ -17,10 +17,6 @@ export class GradesService {
     private readonly studentsService: StudentsService,
   ) {}
 
-  findByClassId(gradeId: mongoose.Types.ObjectId) {
-    return this.gradeModel.findOne({ _id: gradeId });
-  }
-
   async findAllGradeApply() {
     return await this.gradeModel.find(
       { classStatus: { $ne: undefined } },
@@ -84,5 +80,26 @@ export class GradesService {
       message: '撤销申请成功',
       data: grade,
     };
+  }
+
+  //通过一个成绩修改
+  async passGradeApply(_id: string, status?: number) {
+    console.log(_id, status);
+    await this.gradeModel.updateOne(
+      { _id: new ObjectId(_id) },
+      {
+        'classStatus.status': status,
+      },
+    );
+  }
+
+  //驳回一个成绩修改
+  async rejectGradeApply(_id: string) {
+    await this.gradeModel.updateOne(
+      { _id: new ObjectId(_id) },
+      {
+        'classStatus.status': -1,
+      },
+    );
   }
 }

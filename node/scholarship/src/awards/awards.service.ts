@@ -1,5 +1,6 @@
 import { Injectable, Session } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { ObjectId } from 'mongodb';
 import { Model } from 'mongoose';
 import { StudentsService } from 'src/students/students.service';
 import { CreateAwardDto } from './dto/create-award.dto';
@@ -57,5 +58,28 @@ export class AwardsService {
       message: '撤销申请成功',
       data: deleteOne,
     };
+  }
+
+  //通过一个奖助学金申请
+  async passAwardApply(_id: string, status?: number) {
+    console.log(_id, status);
+    let grade = await this.AwardsModule.updateOne(
+      { _id: new ObjectId(_id) },
+      {
+        'applyStatus.status': status,
+      },
+    );
+
+    console.log(grade);
+  }
+
+  //驳回一个奖助学金申请
+  async rejectAwardApply(_id: string) {
+    await this.AwardsModule.updateOne(
+      { _id: new ObjectId(_id) },
+      {
+        'applyStatus.status': -1,
+      },
+    );
   }
 }
