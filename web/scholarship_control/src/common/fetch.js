@@ -231,3 +231,69 @@ export function deleteApply(opt) {
       opt.error && opt.error(error)
     })
 }
+
+// 管理员条件查询成绩申请
+export function adminFindsGradeConditionBy(opt) {
+  Fetch.post(config.adminFindsGradeConditionBy, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}
+
+// 管理员通过成绩申请
+export function adminPassGradeApply(opt) {
+  Fetch.post(config.adminPassGradeApply, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}
+
+// 管理员驳回成绩申请
+export function adminRejectGradeApply(opt) {
+  Fetch.post(config.adminRejectGradeApply, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}
+
+// 条件查询奖学金申请
+export function adminFindAwardApply(opt) {
+  Fetch.post(config.adminFindAwardApply, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}
+
+// 驳回奖学金申请
+export function adminRejectAwardApply(opt) {
+  Fetch.post(config.adminRejectAwardApply, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}
+
+// 同意奖学金申请
+export function adminPassAwardApply(opt) {
+  Fetch.post(config.adminPassAwardApply, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}

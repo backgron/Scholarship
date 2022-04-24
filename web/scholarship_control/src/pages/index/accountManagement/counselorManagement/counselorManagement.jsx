@@ -103,7 +103,7 @@ export default () => {
           </Button>
           <Popconfirm
             title="确定要重置该账号的密码?"
-            onConfirm={() => confirm(text)}
+            onConfirm={() => confirm(record)}
             okText="确定"
             cancelText="取消"
           >

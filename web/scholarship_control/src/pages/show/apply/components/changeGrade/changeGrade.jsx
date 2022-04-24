@@ -14,7 +14,7 @@ for (let i = 0; i < 101; i++) {
   gradeColumns[0].push({ label: i, value: i })
 }
 
-export default () => {
+export default (props) => {
   const [{ user, userType }, setUserInfo] = useSessionStorageState("userInfo")
   const [visible, setVisible] = useState(false)
   const [newGradeVisible, setNewGradeVisible] = useState(false)
@@ -39,7 +39,7 @@ export default () => {
         setBasicColums([colums])
       },
     })
-  }, [])
+  }, [props.renderKey])
 
   return (
     <div className="changeGrade">

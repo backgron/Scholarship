@@ -12,7 +12,7 @@ import { useEffect, useState } from "react"
 import { deleteApply, findAllApply } from "../../../../../common/fetch"
 import { message } from "antd"
 
-const ShowBox = ({ item }) => {
+const ShowBox = ({ item, isRender, setIsRender }) => {
   let mainColor = "#3d7bc7"
   // const mainColor = "#ccc"
   const isClassApply = item?.className ? true : false
@@ -98,6 +98,7 @@ const ShowBox = ({ item }) => {
                     success: (res) => {
                       if (res.data.code < 400) {
                         message.success(res.data.message)
+                        setIsRender(!isRender)
                       } else {
                         message.error(res.data.message)
                       }
@@ -116,8 +117,9 @@ const ShowBox = ({ item }) => {
   )
 }
 
-export default () => {
+export default (props) => {
   const [data, setData] = useState(undefined)
+  const [isRender, setIsRender] = useState(false)
 
   useEffect(() => {
     findAllApply({
@@ -130,10 +132,19 @@ export default () => {
         setData(sortData)
       },
     })
-  }, [])
+  }, [isRender, props.renderKey])
   return (
     <div className="allApply">
-      {data ? data.map((item) => <ShowBox item={item} key={item._id} />) : null}
+      {data
+        ? data.map((item) => (
+            <ShowBox
+              item={item}
+              key={item._id}
+              isRender={isRender}
+              setIsRender={setIsRender}
+            />
+          ))
+        : null}
     </div>
   )
 }

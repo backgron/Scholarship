@@ -5,6 +5,7 @@ import { Card, CascadePicker, TextArea, Button } from "antd-mobile"
 import { useState } from "react"
 import "./awardApply.scss"
 import { createAward } from "../../../../../common/fetch"
+import { useNavigate } from "react-router"
 
 const options = [
   {
@@ -147,6 +148,8 @@ export default () => {
   const [applyLevel, setApplyLevel] = useState()
   const [applyMain, setApplyMain] = useState()
   const [visible, setVisible] = useState(false)
+
+  const navigate = useNavigate()
 
   return (
     <div className="awardApply">

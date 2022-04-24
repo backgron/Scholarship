@@ -24,6 +24,18 @@ let adminFindCounselorBy = adminApi + "findCounselorBy"
 let adminResetCounselorPassword = adminApi + "resetCounselorPassword"
 // 根据_id查询导员详情
 let adminGetCounselorDetail = adminApi + "getCounselorsDetail"
+// 条件查询成绩修改
+let adminFindsGradeConditionBy = adminApi + "findsGradeConditionBy"
+// 同意成绩修改
+let adminPassGradeApply = adminApi + "passGradeApply"
+// 驳回成绩修改
+let adminRejectGradeApply = adminApi + "rejectGradeApply"
+// 条件查询奖学金生申请
+let adminFindAwardApply = adminApi + "findAwardApply"
+//同意奖学金申请
+let adminPassAwardApply = adminApi + "passAwardApply"
+// 驳回奖学金申请
+let adminRejectAwardApply = adminApi + "rejectAwardApply"
 
 //导员接口
 let counselorApi = adr + "counselors/"
@@ -59,6 +71,12 @@ export default {
   adminResetCounselorPassword,
   adminGetStudentDetail,
   adminGetCounselorDetail,
+  adminFindsGradeConditionBy,
+  adminPassGradeApply,
+  adminRejectGradeApply,
+  adminFindAwardApply,
+  adminPassAwardApply,
+  adminRejectAwardApply,
 
   //导员接口
   counselorGetStudentInfo,

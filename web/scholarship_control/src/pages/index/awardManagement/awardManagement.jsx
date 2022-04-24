@@ -12,12 +12,11 @@ import {
 } from "antd"
 import { useState } from "react"
 import { useEffect } from "react"
-import "./gradeManagement.scss"
+import "./awardManagement.scss"
 import {
-  adminFindsGradeConditionBy,
-  adminPassGradeApply,
-  findAllGradeApply,
-  adminRejectGradeApply,
+  adminPassAwardApply,
+  adminFindAwardApply,
+  adminRejectAwardApply,
 } from "../../../common/fetch"
 
 const { Option } = Select
@@ -31,7 +30,7 @@ export default (props) => {
   const PassConfirm = (text) => {
     return new Promise((reslove, reject) => {
       reslove(
-        adminPassGradeApply({
+        adminPassAwardApply({
           params: { _id: text },
           success: (res) => {
             message.success(res.data.message)
@@ -45,7 +44,7 @@ export default (props) => {
   const RejectConfirm = (text) => {
     return new Promise((reslove, reject) => {
       reslove(
-        adminRejectGradeApply({
+        adminRejectAwardApply({
           params: { _id: text },
           success: (res) => {
             message.success(res.data.message)
@@ -57,14 +56,15 @@ export default (props) => {
   }
 
   useEffect(() => {
-    findAllGradeApply({
+    adminFindAwardApply({
       success: function (res) {
-        setData(res.data.map((item) => ({ ...item, ...item.classStatus })))
+        setData(res.data.map((item) => ({ ...item, ...item.applyStatus })))
       },
     })
   }, [updateRender])
 
   const findBy = (value) => {
+    console.log(value)
     let params = {}
     for (let key in value) {
       if (value[key]) {
@@ -72,11 +72,13 @@ export default (props) => {
       }
     }
 
-    adminFindsGradeConditionBy({
+    console.log(params)
+
+    adminFindAwardApply({
       params: params,
       success: (res) => {
         console.log(res)
-        setData(res.data.map((item) => ({ ...item, ...item.classStatus })))
+        setData(res.data.map((item) => ({ ...item, ...item.applyStatus })))
       },
     })
   }
@@ -87,16 +89,16 @@ export default (props) => {
       dataIndex: "stuName",
     },
     {
-      title: "课程名称",
-      dataIndex: "className",
+      title: "奖学金类型",
+      dataIndex: "applyType",
     },
     {
-      title: "现成绩",
-      dataIndex: "classGrade",
+      title: "奖学金名称",
+      dataIndex: "applyName",
     },
     {
-      title: "修改成绩",
-      dataIndex: "newGrade",
+      title: "奖学金等级",
+      dataIndex: "applyLevel",
     },
     {
       title: "一级审批人",
@@ -156,22 +158,22 @@ export default (props) => {
   ]
 
   return (
-    <div className="gradeManagement">
+    <div className="awardManagement">
       <div className="search_box">
         <Form layout="inline" onFinish={findBy} className="search_form">
           <Form.Item name="stuName" label="姓名">
             <Input placeholder="按姓名查找" />
           </Form.Item>
-          <Form.Item name="className" label="课程">
-            <Input placeholder="按课程找查" />
+          <Form.Item name="applyName" label="奖学金名称">
+            <Input placeholder="奖学金名称" />
           </Form.Item>
-          <Form.Item name="status" label="审批进度">
+          <Form.Item name="applyStatus.status" label="审批进度">
             <Select defaultValue="所有申请" style={{ width: 120 }}>
               <Option value="">所有申请</Option>
-              <Option value="0">已申请</Option>
-              <Option value="1">导员已审批</Option>
-              <Option value="2">管理员已审批</Option>
-              <Option value="-1">已驳回</Option>
+              <Option value={0}>已申请</Option>
+              <Option value={1}>导员已审批</Option>
+              <Option value={2}>管理员已审批</Option>
+              <Option value={-1}>已驳回</Option>
             </Select>
           </Form.Item>
 
