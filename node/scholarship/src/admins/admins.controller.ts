@@ -6,12 +6,17 @@ import {
   Patch,
   Param,
   Delete,
+  Session,
+  Query,
 } from '@nestjs/common';
 import { StudentsService } from 'src/students/students.service';
 import { AdminsService } from './admins.service';
 import { CounselorsService } from 'src/counselors/counselors.service';
 import { AwardsService } from 'src/awards/awards.service';
 import { GradesService } from 'src/grades/grades.service';
+import { NoticesService } from 'src/notices/notices.service';
+import { CreateNoticeDto } from 'src/notices/dto/create-notice.dto';
+import { UpdateNoticeDto } from 'src/notices/dto/update-notice.dto';
 
 @Controller('admins')
 export class AdminsController {
@@ -21,6 +26,7 @@ export class AdminsController {
     private readonly counselorsService: CounselorsService,
     private readonly awardsService: AwardsService,
     private readonly gradesService: GradesService,
+    private readonly noticeService: NoticesService,
   ) {}
 
   //获取学生信息
@@ -146,5 +152,35 @@ export class AdminsController {
       code: 200,
       message: '已驳回申请',
     };
+  }
+
+  //创建一个公告
+  @Post('/createNotices')
+  async createNotices(
+    @Body() params: CreateNoticeDto,
+    @Session() session: any,
+  ) {
+    return this.noticeService.createNotices(params);
+  }
+
+  //修改一个公告
+  @Post('/updateNotice')
+  async updateNotice(
+    @Query('_id') _id: string,
+    @Body() updateNoticeDto: UpdateNoticeDto,
+  ) {
+    return this.noticeService.updateNotice(_id, updateNoticeDto);
+  }
+
+  // 条件查询导员信息
+  @Post('/findNoticelorBy')
+  findNoticeBy(@Body() params: Object) {
+    let para = {};
+    for (let key in params) {
+      if (params[key]) {
+        para[key] = new RegExp(params[key], 'i');
+      }
+    }
+    return this.noticeService.findNoitceBy(para);
   }
 }

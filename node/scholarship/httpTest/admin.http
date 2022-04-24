@@ -107,4 +107,30 @@ Content-Type: application/json
 }
 
 
+### 创建一个公告
+POST http://localhost:3000/admins/createNotices
+Content-Type: application/json
+
+{
+  "main":"坚决守住校园疫情防控底线---河南财政金融学院召开全校疫情防范工作视频会议",
+  "type":"公告"
+}
+
+
+### 修改一个公告
+POST http://localhost:3000/admins/updateNotice?_id=6264ff2a001c413503ea12e2
+Content-Type: application/json
+
+{
+  "main":"修改后的公告1111111111",
+  "type":"公告",
+  "status":1
+}
+
+### 条件查询公告
+POST http://localhost:3000/admins/findNoticelorBy
+Content-Type: application/json
+
+
+
 

@@ -7,6 +7,7 @@ import { StudentsModule } from 'src/students/students.module';
 import { CounselorsModule } from 'src/counselors/counselors.module';
 import { AwardsModule } from 'src/awards/awards.module';
 import { GradesModule } from 'src/grades/grades.module';
+import { NoticesModule } from 'src/notices/notices.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { GradesModule } from 'src/grades/grades.module';
     CounselorsModule,
     AwardsModule,
     GradesModule,
+    NoticesModule,
   ],
   controllers: [AdminsController],
   providers: [AdminsService],
