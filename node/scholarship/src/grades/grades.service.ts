@@ -72,4 +72,17 @@ export class GradesService {
   async findStuAllGradesById(_id: string) {
     return await this.gradeModel.find({ stuId: new ObjectId(_id) });
   }
+
+  //删除一个成绩修改申请
+  async studentDeleteGradeApply(_id: string, stu_id: string): Promise<any> {
+    await this.studentsService.deleteGradeApply(_id, stu_id);
+    let grade = await this.gradeModel.findOne({ _id: new ObjectId(_id) });
+    grade.classStatus = undefined;
+    grade.save();
+    return {
+      code: 200,
+      message: '撤销申请成功',
+      data: grade,
+    };
+  }
 }

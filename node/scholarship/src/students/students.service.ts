@@ -191,12 +191,22 @@ export class StudentsService {
     };
   }
 
-  //学生删除一个申请
+  //学生删除一个奖学金申请
   async deleteAward(_id: string, stu_id: string): Promise<any> {
     let stu = await this.findByObjectId(stu_id);
     stu.awards = stu.awards.filter((item) => {
       return item.toString() !== _id;
     });
+    stu.save();
+  }
+
+  //学生删除一个成绩申请
+  async deleteGradeApply(_id: string, stu_id: string): Promise<any> {
+    let stu = await this.findByObjectId(stu_id);
+    stu.grades = stu.grades.filter((item) => {
+      return item.toString() !== _id;
+    });
+    console.log(stu);
     stu.save();
   }
 }

@@ -123,10 +123,10 @@ export class StudentsController {
         session.user._id,
       );
     } else if (params.applyType === 'gradeApply') {
-      return {
-        code: 404,
-        message: '接口还没写',
-      };
+      return this.gradesService.studentDeleteGradeApply(
+        params._id,
+        session.user._id,
+      );
     }
   }
 }

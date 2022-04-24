@@ -14,7 +14,7 @@ POST  http://localhost:3000/students/changeGrade
 Content-Type: application/json
 
 {
-  "grade_id":"620b6a34e651b3a31fcfc36a",
+  "grade_id":"6264a5587df922e7105299e7",
   "newGrade":"70"
 }
 
@@ -72,7 +72,8 @@ POST http://localhost:3000/students/deleteApply
 Content-Type: application/json
 
 {
-  "_id":"6263be6c6e96ddc537f36580"
+  "applyType":"gradeApply",
+  "_id":"6264a5587df922e7105299e7"
 }
 
 ### 测试鉴权
