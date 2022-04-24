@@ -45,7 +45,7 @@ export class AwardsService {
 
   //查找奖学金申请记录
   async findsAwardCondition(awardCondition: any) {
-    return await this.AwardsModule.find({ ...awardCondition });
+    return await this.AwardsModule.find(awardCondition);
   }
 
   //删除一个奖助学金申请

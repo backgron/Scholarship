@@ -87,7 +87,25 @@ export class AdminsController {
   // 条件查询奖学金申请
   @Post('/findAwardApply')
   async findAllAwardApply(@Body() params: any) {
-    return this.awardsService.findsAwardCondition(params);
+    let para = {};
+    for (let key in params) {
+      if (params[key]) {
+        para[key] = new RegExp(params[key], 'i');
+      }
+    }
+    return this.awardsService.findsAwardCondition(para);
+  }
+
+  //条件查询成绩
+  @Post('/findsGradeConditionBy')
+  async findsGradeConditionBy(@Body() params: any) {
+    let para = {};
+    for (let key in params) {
+      if (params[key]) {
+        para[key] = new RegExp(params[key], 'i');
+      }
+    }
+    return this.gradesService.findsGradeConditionBy(para);
   }
 
   //通过一个成绩申请

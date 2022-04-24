@@ -69,6 +69,12 @@ export class GradesService {
     return await this.gradeModel.find({ stuId: new ObjectId(_id) });
   }
 
+  //条件模糊查询
+  async findsGradeConditionBy(gradeCondition: any) {
+    let grades = await this.gradeModel.find(gradeCondition, {});
+    return grades;
+  }
+
   //删除一个成绩修改申请
   async studentDeleteGradeApply(_id: string, stu_id: string): Promise<any> {
     await this.studentsService.deleteGradeApply(_id, stu_id);

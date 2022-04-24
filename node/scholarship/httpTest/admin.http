@@ -36,6 +36,7 @@ POST http://localhost:3000/admins/findCounselorBy
 Content-Type: application/json
 
 {
+  "name":"0",
   "position.academy":"计算机"
 }
 
@@ -61,7 +62,15 @@ POST http://localhost:3000/admins/findAwardApply
 Content-Type: application/json
 
 {
-  "applyName":"123"
+  "applyLevel":"校"
+}
+
+### 条件查询成绩申请
+POST http://localhost:3000/admins/findsGradeConditionBy
+Content-Type: application/json
+
+{
+  "className":"v"
 }
 
 ### 通过成绩申请
