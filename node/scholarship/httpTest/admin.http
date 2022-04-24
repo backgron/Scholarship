@@ -62,7 +62,7 @@ POST http://localhost:3000/admins/findAwardApply
 Content-Type: application/json
 
 {
-  "applyLevel":"校"
+  "applyStatus.status":2
 }
 
 ### 条件查询成绩申请

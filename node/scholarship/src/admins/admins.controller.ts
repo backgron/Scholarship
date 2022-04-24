@@ -95,10 +95,13 @@ export class AdminsController {
   async findAllAwardApply(@Body() params: any) {
     let para = {};
     for (let key in params) {
-      if (params[key]) {
+      if (key === 'applyStatus.status') {
+        para['applyStatus.status'] = params['applyStatus.status'];
+      } else if (params[key]) {
         para[key] = new RegExp(params[key], 'i');
       }
     }
+    console.log(para);
     return this.awardsService.findsAwardCondition(para);
   }
 

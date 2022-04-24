@@ -50,7 +50,6 @@ export class GradesService {
       };
       gra.save();
     }
-    console.log(session.user);
   }
 
   async createGrade(createGradeDTO: CreateGradeDTO, session: any) {
@@ -71,7 +70,10 @@ export class GradesService {
 
   //条件模糊查询
   async findsGradeConditionBy(gradeCondition: any) {
-    let grades = await this.gradeModel.find(gradeCondition, {});
+    let grades = await this.gradeModel.find(
+      { ...gradeCondition, classStatus: { $ne: undefined } },
+      {},
+    );
     return grades;
   }
 
