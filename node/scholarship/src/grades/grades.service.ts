@@ -71,7 +71,7 @@ export class GradesService {
   //条件模糊查询
   async findsGradeConditionBy(gradeCondition: any) {
     let grades = await this.gradeModel.find(
-      { ...gradeCondition, classStatus: { $ne: undefined } },
+      { classStatus: { $ne: undefined }, ...gradeCondition },
       {},
     );
     return grades;

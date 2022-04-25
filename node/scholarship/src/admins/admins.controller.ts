@@ -1,14 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-  Session,
-  Query,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Session, Query } from '@nestjs/common';
 import { StudentsService } from 'src/students/students.service';
 import { AdminsService } from './admins.service';
 import { CounselorsService } from 'src/counselors/counselors.service';
@@ -96,7 +86,7 @@ export class AdminsController {
     let para = {};
     for (let key in params) {
       if (key === 'applyStatus.status') {
-        para['applyStatus.status'] = params['applyStatus.status'];
+        para['applyStatus.status'] = params['applyStatus.status'] - 0;
       } else if (params[key]) {
         para[key] = new RegExp(params[key], 'i');
       }
@@ -110,7 +100,9 @@ export class AdminsController {
   async findsGradeConditionBy(@Body() params: any) {
     let para = {};
     for (let key in params) {
-      if (params[key]) {
+      if (key === 'classStatus.status') {
+        para['classStatus.status'] = params['classStatus.status'] - 0;
+      } else if (params[key]) {
         para[key] = new RegExp(params[key], 'i');
       }
     }
