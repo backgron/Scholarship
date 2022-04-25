@@ -23,8 +23,8 @@ const { Option } = Select
 
 export default (props) => {
   let [data, setData] = useState([])
-  const [visible, setVisible] = useState(false)
-  const [counselor, setCounselor] = useState(null)
+  // const [visible, setVisible] = useState(false)
+  // const [counselor, setCounselor] = useState(null)
   const [updateRender, setUpdateRender] = useState(false)
 
   const PassConfirm = (text) => {
@@ -170,7 +170,7 @@ export default (props) => {
           <Form.Item name="applyStatus.status" label="审批进度">
             <Select defaultValue="所有申请" style={{ width: 120 }}>
               <Option value="">所有申请</Option>
-              <Option value={0}>已申请</Option>
+              <Option value={"0"}>已申请</Option>
               <Option value={1}>导员已审批</Option>
               <Option value={2}>管理员已审批</Option>
               <Option value={-1}>已驳回</Option>

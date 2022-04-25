@@ -165,13 +165,13 @@ export default (props) => {
           <Form.Item name="className" label="课程">
             <Input placeholder="按课程找查" />
           </Form.Item>
-          <Form.Item name="status" label="审批进度">
+          <Form.Item name="classStatus.status" label="审批进度">
             <Select defaultValue="所有申请" style={{ width: 120 }}>
               <Option value="">所有申请</Option>
-              <Option value="0">已申请</Option>
-              <Option value="1">导员已审批</Option>
-              <Option value="2">管理员已审批</Option>
-              <Option value="-1">已驳回</Option>
+              <Option value={"0"}>已申请</Option>
+              <Option value={1}>导员已审批</Option>
+              <Option value={2}>管理员已审批</Option>
+              <Option value={-1}>已驳回</Option>
             </Select>
           </Form.Item>
 

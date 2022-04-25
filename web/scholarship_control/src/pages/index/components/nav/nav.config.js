@@ -9,14 +9,14 @@ import {
 } from "@ant-design/icons"
 
 export default [
-  {
-    type: "MenuItem",
-    key: "sub0",
-    icon: DeploymentUnitOutlined,
-    innerHtml: "首页",
-    path: "",
-    role: ["admin", "counselor"],
-  },
+  // {
+  //   type: "MenuItem",
+  //   key: "sub0",
+  //   icon: DeploymentUnitOutlined,
+  //   innerHtml: "首页",
+  //   path: "",
+  //   role: ["admin", "counselor"],
+  // },
   {
     type: "SubMenu",
     key: "sub1",
