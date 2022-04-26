@@ -34,6 +34,7 @@ export class NoticesService {
 
   //修改一个公告
   async updateNotice(_id: string, updateNoticeDto: UpdateNoticeDto) {
+    console.log(_id);
     let notice = await this.noticesModel.findByIdAndUpdate(
       new ObjectId(_id),
       updateNoticeDto,

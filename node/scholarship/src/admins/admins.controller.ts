@@ -7,6 +7,7 @@ import { GradesService } from 'src/grades/grades.service';
 import { NoticesService } from 'src/notices/notices.service';
 import { CreateNoticeDto } from 'src/notices/dto/create-notice.dto';
 import { UpdateNoticeDto } from 'src/notices/dto/update-notice.dto';
+import { isAuth } from 'src/guard/auth-guard.guard';
 
 @Controller('admins')
 export class AdminsController {
@@ -167,12 +168,15 @@ export class AdminsController {
     return this.noticeService.updateNotice(_id, updateNoticeDto);
   }
 
-  // 条件查询导员信息
+  // 条件查询公告信息
   @Post('/findNoticelorBy')
+  @isAuth('admin', 'student')
   findNoticeBy(@Body() params: Object) {
     let para = {};
     for (let key in params) {
-      if (params[key]) {
+      if (key === 'status') {
+        para['status'] = params['status'] - 0;
+      } else if (params[key]) {
         para[key] = new RegExp(params[key], 'i');
       }
     }
