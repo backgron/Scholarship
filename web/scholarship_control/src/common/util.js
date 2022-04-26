@@ -1,18 +1,7 @@
 /** @format */
 
-import Base64 from "js-base64"
-import JSEncrypt from "jsencrypt"
 var SIGN_REGEXP = /([yMdhsm])(\1*)/g
 var DEFAULT_PATTERN = "yyyy-MM-dd"
-
-// 把参数用RSA加密
-export function getEncryPass(phone) {
-  let encrypt = new JSEncrypt()
-  let enpubkey =
-    "MIG6tsqIamhtai4LGTcD9mp1QMPyMF+p5ElxSJj4wytdfwedtjdfgh7ykghjfhdsgafdsaxzcvchuQ1oqPKS29Cu6pAIGsWNS1wVvw0ogdK2qF8ttf8yEC4fH8luYvPVkVNHYs8n/tQ5qPNjHxTGOSORgItRtBBWQIDAQAB"
-  encrypt.setPublicKey(enpubkey)
-  return Base64.encode(encrypt.encrypt(phone))
-}
 
 export function getQueryStringByName(name) {
   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i")

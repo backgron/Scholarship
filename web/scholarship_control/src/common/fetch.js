@@ -297,3 +297,40 @@ export function adminPassAwardApply(opt) {
       opt.error && opt.error(error)
     })
 }
+
+// 条件查询公告
+export function adminFindNoticelorBy(opt) {
+  Fetch.post(config.adminFindNoticelorBy, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}
+
+// 创建一个公告
+export function adminCreateNotices(opt) {
+  Fetch.post(config.adminCreateNotices, opt.params, header)
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}
+
+// 修改一条公告
+export function adminUpdateNotice(opt) {
+  Fetch.post(
+    config.adminUpdateNotice + "?_id=" + opt.params._id,
+    opt.params,
+    header
+  )
+    .then(function (data) {
+      opt.success && opt.success(data)
+    })
+    .catch(function (error) {
+      opt.error && opt.error(error)
+    })
+}

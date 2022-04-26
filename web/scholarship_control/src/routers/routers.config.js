@@ -11,7 +11,8 @@ import Home from "../pages/show/home/index"
 import Mine from "../pages/show/mine/index"
 import Apply from "../pages/show/apply/index"
 import InfoPage from "../pages/show/infoPage"
-import awardManagement from "../pages/index/awardManagement/awardManagement"
+import AwardManagement from "../pages/index/awardManagement/awardManagement"
+import NoticeManagement from "../pages/index/noticeManagement/noticeManagement"
 
 export default [
   {
@@ -38,13 +39,18 @@ export default [
       },
       {
         path: "awardManagement",
-        Element: awardManagement,
+        Element: AwardManagement,
         role: ["admin", "counselor"],
       },
       {
         path: "gradeManagement",
         Element: GradeManagement,
         role: ["admin", "counselor"],
+      },
+      {
+        path: "noticeManagement",
+        Element: NoticeManagement,
+        role: ["admin"],
       },
     ],
   },

@@ -89,7 +89,7 @@ export default [
       {
         type: "MenuItem",
         key: "6",
-        path: "counselorManagement",
+        path: "noticeManagement",
         role: ["admin"],
         innerHtml: "官网公告管理",
       },

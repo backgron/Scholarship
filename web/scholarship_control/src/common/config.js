@@ -36,6 +36,12 @@ let adminFindAwardApply = adminApi + "findAwardApply"
 let adminPassAwardApply = adminApi + "passAwardApply"
 // 驳回奖学金申请
 let adminRejectAwardApply = adminApi + "rejectAwardApply"
+// 条件查找公告
+let adminFindNoticelorBy = adminApi + "findNoticelorBy"
+// 创建一个公告
+let adminCreateNotices = adminApi + "createNotices"
+// 修改一个公告
+let adminUpdateNotice = adminApi + "updateNotice"
 
 //导员接口
 let counselorApi = adr + "counselors/"
@@ -77,6 +83,9 @@ export default {
   adminFindAwardApply,
   adminPassAwardApply,
   adminRejectAwardApply,
+  adminFindNoticelorBy,
+  adminCreateNotices,
+  adminUpdateNotice,
 
   //导员接口
   counselorGetStudentInfo,
