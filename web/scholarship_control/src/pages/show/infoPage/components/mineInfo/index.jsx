@@ -178,10 +178,8 @@ export default () => {
           <CaretRightFilled />
         </div>
       </Card>
-      <Card className="infoItem">
-        <span className="keySpan" onClick={() => setVisible(true)}>
-          学院
-        </span>
+      <Card className="infoItem" onClick={() => setVisible(true)}>
+        <span className="keySpan">学院</span>
         <div>
           <span className="valueSpan">{position.academy}</span>
           <CaretRightFilled />
