@@ -112,8 +112,8 @@ export class AdminsController {
 
   //通过一个成绩申请
   @Post('/passGradeApply')
-  async passGradeApply(@Body('_id') _id: string) {
-    await this.gradesService.passGradeApply(_id, 2);
+  async passGradeApply(@Body() params: { _id: string; status: number }) {
+    await this.gradesService.passGradeApply(params._id, params.status);
     return {
       code: 200,
       message: '已通过申请',
@@ -122,8 +122,8 @@ export class AdminsController {
 
   //通过一个奖助学金
   @Post('/passAwardApply')
-  async passAwardApply(@Body('_id') _id: string) {
-    await this.awardsService.passAwardApply(_id, 2);
+  async passAwardApply(@Body() params: { _id: string; status: number }) {
+    await this.awardsService.passAwardApply(params._id, params.status);
     return {
       code: 200,
       message: '已通过申请',

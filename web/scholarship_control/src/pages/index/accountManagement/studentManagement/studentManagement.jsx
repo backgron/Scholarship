@@ -1,6 +1,15 @@
 /** @format */
 
-import { Table, Tag, Popconfirm, Button, Input, Form, message } from "antd"
+import {
+  Table,
+  Tag,
+  Popconfirm,
+  Button,
+  Input,
+  Form,
+  message,
+  Select,
+} from "antd"
 import { useState } from "react"
 import { useEffect } from "react"
 import StudentDetail from "./components/studentDetail/studentDetail"
@@ -11,11 +20,16 @@ import {
   adminFindStuBy,
   adminGetStudentDetail,
 } from "../../../../common/fetch"
+import { useSessionStorageState } from "ahooks"
+
+const { Option } = Select
 
 export default () => {
   let [data, setData] = useState([])
   const [visible, setVisible] = useState(false)
   const [stu, setStu] = useState(null)
+
+  const [{ user, userType }] = useSessionStorageState("userInfo")
 
   const confirm = (text) => {
     return new Promise((reslove, reject) => {
@@ -38,7 +52,8 @@ export default () => {
   }
 
   const findBy = (value) => {
-    let params = {}
+    console.log(value)
+    let params = { "position.academy": user?.position?.academy }
     for (let key in value) {
       if (value[key]) {
         params[key] = value[key]
@@ -65,14 +80,9 @@ export default () => {
   }
 
   useEffect(() => {
-    getStudentInfo(
-      {
-        success: function (res) {
-          setData(res.data)
-        },
-      },
-      sessionStorage.getItem("userType")
-    )
+    userType === "counselor"
+      ? findBy({ "position.academy": user?.position?.academy })
+      : findBy()
   }, [])
 
   const columns = [
@@ -127,7 +137,16 @@ export default () => {
             <Input placeholder="按学号查找" />
           </Form.Item>
           <Form.Item name="position._class" label="班级">
-            <Input placeholder="班级" />
+            {userType === "counselor" ? (
+              <Select defaultValue={""} onChange={(v) => console.log(v)}>
+                <Option value="">显示全部</Option>
+                {user.position._class.map((item) => (
+                  <Option value={item}>{item}</Option>
+                ))}
+              </Select>
+            ) : (
+              <Input placeholder="班级" />
+            )}
           </Form.Item>
 
           <Form.Item>

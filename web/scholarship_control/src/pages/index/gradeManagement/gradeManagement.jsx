@@ -12,6 +12,7 @@ import {
 } from "antd"
 import { useState } from "react"
 import { useEffect } from "react"
+import { useSessionStorageState } from "ahooks"
 import "./gradeManagement.scss"
 import {
   adminFindsGradeConditionBy,
@@ -28,11 +29,13 @@ export default (props) => {
   const [counselor, setCounselor] = useState(null)
   const [updateRender, setUpdateRender] = useState(false)
 
+  const [{ user, userType }] = useSessionStorageState("userInfo")
+
   const PassConfirm = (text) => {
     return new Promise((reslove, reject) => {
       reslove(
         adminPassGradeApply({
-          params: { _id: text },
+          params: { _id: text, status: userType === "admin" ? 2 : 1 },
           success: (res) => {
             message.success(res.data.message)
             setUpdateRender(!updateRender)
@@ -117,7 +120,7 @@ export default (props) => {
             } else if (status === 0) {
               return <Tag color="#108ee9">学生已申请</Tag>
             } else if (status === 1) {
-              return <Tag color="#108ee9">辅导员已审批</Tag>
+              return <Tag color="#2db7f5">辅导员已审批</Tag>
             } else if (status === 2) {
               return <Tag color="#87d068">申请已通过</Tag>
             }

@@ -1,6 +1,11 @@
 /** @format */
 
-let adr = "/api"
+// //dev
+// let adr = "/api"
+
+// pro
+let adr = "/api/"
+
 // 系统接口
 let TESTS = adr + "tests"
 //登录

@@ -1,33 +1,35 @@
-.awardApply{
-  .card-container{
+/** @format */
+
+.awardApply {
+  .card-container {
     height: 100%;
   }
-  .adm-tabs{
+  .adm-tabs {
     height: 100%;
   }
-  .card{
+  .card {
     margin-bottom: 5px;
-    .adm-card-body{
+    .adm-card-body {
       width: 100%;
       display: flex;
       justify-content: space-between;
       font-size: 14px;
-      padding:5px 0;
+      padding: 5px 0;
 
-      .labelValue{
-        color:#999;
+      .labelValue {
+        color: #999;
       }
     }
     display: flex;
   }
-  .subBtn{
-    position:absolute;
-    bottom:30px;
-    width: auto;
+  .subBtn {
+    position: absolute;
+    bottom: 30px;
+    width: calc(100% - 10px);
     left: 5px;
-    right:5px;
+    right: 5px;
   }
-  .adm-text-area-element{
+  .adm-text-area-element {
     font-size: 14px;
   }
 }
