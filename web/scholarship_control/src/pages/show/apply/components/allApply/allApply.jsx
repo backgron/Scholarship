@@ -54,7 +54,9 @@ const ShowBox = ({ item, isRender, setIsRender }) => {
             <div className="topItem">
               <ClockCircleFilled style={{ color: mainColor }} />
               <span>
-                {isClassApply ? item.classStatus.applyTime : item.applyTime}
+                {isClassApply
+                  ? formatDate(new Date(parseInt(item.classStatus.applyTime)))
+                  : formatDate(new Date(parseInt(item.applyTime)))}
               </span>
             </div>
             <div className="topItem">
