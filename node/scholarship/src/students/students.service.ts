@@ -154,18 +154,18 @@ export class StudentsService {
     return applys;
   }
 
-  // 查询自己的所有成绩
-  async findAllGrades(session: any) {
-    let grades = (await this.findByObjectId(session.user._id)).populate([
-      {
-        path: 'grades',
-        select: {
-          classStatus: 0,
-        },
-      },
-    ]);
-    return (await grades).grades;
-  }
+  // // 查询自己的所有成绩
+  // async findAllGrades(session: any) {
+  //   let grades = (await this.findByObjectId(session.user._id)).populate([
+  //     {
+  //       path: 'grades',
+  //       select: {
+  //         classStatus: 0,
+  //       },
+  //     },
+  //   ]);
+  //   return (await grades).grades;
+  // }
 
   // 查询自己的奖惩信息
   async findAllActions(session: any) {

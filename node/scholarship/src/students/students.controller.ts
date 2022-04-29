@@ -87,7 +87,7 @@ export class StudentsController {
 
   @Get('/findAllGrades')
   async findAllGrades(@Session() session: any) {
-    return await this.studentsService.findAllGrades(session);
+    return await this.gradesService.findStuAllGradesById(session.user._id);
   }
 
   @Get('/findAllActions')

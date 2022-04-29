@@ -15,7 +15,7 @@ import { MetadataScanner } from '@nestjs/core/metadata-scanner';
   imports: [
     //连接数据库
     MongooseModule.forRoot(
-      'mongodb://admin:backgron@127.0.0.1:27017/scholarship?authSource=admin&authMechanism=SCRAM-SHA-1',
+      'mongodb://admin:backgron@101.35.152.10:27017/scholarship?authSource=admin&authMechanism=SCRAM-SHA-1',
     ),
     AdminsModule,
     GradesModule,
