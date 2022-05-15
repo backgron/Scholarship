@@ -33,6 +33,7 @@ export default () => {
     adminFindNoticelorBy({
       params: {
         type: "公告",
+        status: 1,
       },
       success: (res) => {
         setNotice(res.data.splice(0, 4))
@@ -41,6 +42,7 @@ export default () => {
     adminFindNoticelorBy({
       params: {
         type: "通知",
+        status: 1,
       },
       success: (res) => {
         setInfo(res.data.splice(0, 4))

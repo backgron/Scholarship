@@ -26,7 +26,7 @@ export default (props) => {
 
   const menu = (
     <Menu onClick={onClick}>
-      <Menu.Item key="1">修改个人信息</Menu.Item>
+      {/* <Menu.Item key="1">修改个人信息</Menu.Item> */}
       <Menu.Item key="2">退出登录</Menu.Item>
     </Menu>
   )
