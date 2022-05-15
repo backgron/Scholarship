@@ -18,8 +18,10 @@ import { GradesService } from 'src/grades/grades.service';
 import { ChangeGradeDto } from 'src/grades/dto/student-change-grade.dto';
 import { RePasswordDto } from './dto/repassword-student.dto';
 import { DeleteApplyDto } from './dto/delete-apply.dto';
+import { isAuth } from 'src/guard/auth-guard.guard';
 
 @Controller('students')
+@isAuth('admin', 'counselor', 'student')
 export class StudentsController {
   constructor(
     private readonly studentsService: StudentsService,

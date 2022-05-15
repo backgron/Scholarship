@@ -22,12 +22,14 @@ export class AdminsController {
 
   //获取学生信息
   @Get('/getStudentInfo')
+  @isAuth('admin', 'counselor')
   getStudentInfo() {
     return this.studentsService.getStudentInfo();
   }
 
   //重置学生密码
   @Post('/resetStuPassword')
+  @isAuth('admin', 'counselor')
   resetStuPassword(@Body('_id') _id: string) {
     return this.studentsService.resetStuPassword(_id);
   }
@@ -40,6 +42,7 @@ export class AdminsController {
 
   // 条件查询学生信息
   @Post('/findStuBy')
+  @isAuth('admin', 'counselor')
   findStuBy(@Body() params: Object) {
     let para = {};
     for (let key in params) {
@@ -52,12 +55,14 @@ export class AdminsController {
 
   //查询所有导员信息
   @Get('/getCounselorInfo')
+  @isAuth('admin')
   findCounselorInfo() {
     return this.counselorsService.findCounselorInfo();
   }
 
   // 条件查询导员信息
   @Post('/findCounselorBy')
+  @isAuth('admin')
   findCounselorBy(@Body() params: Object) {
     let para = {};
     for (let key in params) {
@@ -70,6 +75,7 @@ export class AdminsController {
 
   //重置导员密码
   @Post('/resetCounselorPassword')
+  @isAuth('admin')
   resetCounselorPassword(@Body('_id') _id: string) {
     console.log(1111111);
 
@@ -77,12 +83,14 @@ export class AdminsController {
   }
 
   @Post('/getCounselorsDetail')
+  @isAuth('admin')
   getCounselorsDetail(@Body('_id') _id: string) {
     return this.counselorsService.findCounselorByObjectId(_id);
   }
 
   // 条件查询奖学金申请
   @Post('/findAwardApply')
+  @isAuth('admin', 'counselor')
   async findAllAwardApply(@Body() params: any) {
     let para = {};
     for (let key in params) {
@@ -98,6 +106,7 @@ export class AdminsController {
 
   //条件查询成绩
   @Post('/findsGradeConditionBy')
+  @isAuth('admin', 'counselor')
   async findsGradeConditionBy(@Body() params: any) {
     let para = {};
     for (let key in params) {
@@ -112,6 +121,7 @@ export class AdminsController {
 
   //通过一个成绩申请
   @Post('/passGradeApply')
+  @isAuth('admin', 'counselor')
   async passGradeApply(@Body() params: { _id: string; status: number }) {
     await this.gradesService.passGradeApply(params._id, params.status);
     return {
@@ -122,6 +132,7 @@ export class AdminsController {
 
   //通过一个奖助学金
   @Post('/passAwardApply')
+  @isAuth('admin', 'counselor')
   async passAwardApply(@Body() params: { _id: string; status: number }) {
     await this.awardsService.passAwardApply(params._id, params.status);
     return {
@@ -132,6 +143,7 @@ export class AdminsController {
 
   //驳回一个奖助学金申请
   @Post('/rejectAwardApply')
+  @isAuth('admin', 'counselor')
   async rejectAwardApply(@Body('_id') _id: string) {
     await this.awardsService.rejectAwardApply(_id);
     return {
@@ -142,6 +154,7 @@ export class AdminsController {
 
   //驳回一个奖助学金申请
   @Post('/rejectGradeApply')
+  @isAuth('admin', 'counselor')
   async rejectGradeApply(@Body('_id') _id: string) {
     await this.gradesService.rejectGradeApply(_id);
     return {
@@ -152,6 +165,7 @@ export class AdminsController {
 
   //创建一个公告
   @Post('/createNotices')
+  @isAuth('admin')
   async createNotices(
     @Body() params: CreateNoticeDto,
     @Session() session: any,

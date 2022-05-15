@@ -1,9 +1,11 @@
 import { Controller, Get, Post, Body, Session } from '@nestjs/common';
+import { isAuth } from 'src/guard/auth-guard.guard';
 import { CreateGradeDTO } from './dto/create-grade.dto';
 import { ChangeGradeDto } from './dto/student-change-grade.dto';
 import { GradesService } from './grades.service';
 
 @Controller('grades')
+@isAuth('admin', 'counselor', 'student')
 export class GradesController {
   constructor(private readonly gradesService: GradesService) {}
 
