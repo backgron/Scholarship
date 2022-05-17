@@ -55,7 +55,7 @@ export default () => {
           localStorage.setItem("username", values.username)
           sessionStorage.setItem("userType", data.userType)
           setUserInfo(data)
-          navigate("/index")
+          navigate("/index/studentManagement")
         } else if (data && data.userType === "student") {
           localStorage.setItem("username", values.username)
           sessionStorage.setItem("userType", data.userType)
