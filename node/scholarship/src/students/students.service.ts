@@ -48,6 +48,9 @@ export class StudentsService {
   // 学生登录
   async login(stuId: string, password: string) {
     let stu = await this.findByStuId(stuId);
+    if (!stu) {
+      return false;
+    }
     let stuObj = await this.findByObjectId(stu._id.toHexString());
     if (stuObj && (await isPassword(stuObj, this.studentModel, password))) {
       return stu;
