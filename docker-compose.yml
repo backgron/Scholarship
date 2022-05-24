@@ -1,11 +1,11 @@
-version: '3.3'
+version: "3"
 
 services:
   houduan:
-    build: ./node/scholarship/Dockerfile
+    build: ./node/scholarship
     ports:
       - 3000:3000
   qianduan:
-    build: ./web/scholarship_control/Dockerfile
+    build: ./web
     ports:
-      - 3344:80
+      - 80:80

@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  scholarship_web:
+    build: .
+    ports:
+      - 80:80
