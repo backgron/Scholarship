@@ -1,13 +1,23 @@
-FROM nginx
+FROM backgron/scholarship
 
-ENV MYPATH /etc/nginx
-WORKDIR $MYPATH
+CMD ["bash"]
 
-COPY nginx.conf $MYPATH/nginx.conf
+RUN mkdir /source
 
-COPY build/ /usr/share/nginx/html
+WORKDIR /source
 
-RUN chmod -R 777 $MYPATH
+COPY . /source
+
+RUN npm i
+
+RUN npm run build
+
+COPY nginx.conf /etc/nginx/nginx.conf
+
+
+RUN chmod -R 777 /source
 
 EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
 

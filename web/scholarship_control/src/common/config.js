@@ -1,7 +1,7 @@
 /** @format */
 
 //dev
-let adr = "/api"
+let adr = "/api/"
 
 // // pro
 // let adr = "/api/"

@@ -1,11 +1,11 @@
 version: "3"
 
 services:
-  houduan:
+  xitong:
     build: ./node/scholarship
     ports:
       - 3000:3000
   qianduan:
-    build: ./web
+    build: ./web/scholarship_control
     ports:
       - 80:80

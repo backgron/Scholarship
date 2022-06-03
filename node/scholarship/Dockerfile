@@ -1,11 +1,14 @@
-FROM node
+FROM backgron/scholarship
 
 RUN mkdir /source
 
 WORKDIR /source
 
-COPY dist /source/dist
-COPY node_modules /source/node_modules
+COPY . /source
+
+RUN npm i
+
+RUN npm run build
 
 RUN chmod -R 777 /source/dist/main.js
 
