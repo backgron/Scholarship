@@ -84,7 +84,7 @@ export default () => {
         <div className="login_title">
           <div className="logo"></div>
           <span className="split">|</span>
-          <div className="page_name">河南财政金融学院奖助学金管理系统</div>
+          <div className="page_name">奖助学金管理系统</div>
         </div>
 
         <div className="login_box">
@@ -92,12 +92,12 @@ export default () => {
             <h5>简介</h5>
             <hr />
             <p>
-              欢迎访问河南财政金融学院奖助学金管理系统，校内用户访问请使用我校统一分配的工号（学号）进行登录！
+              欢迎访问高校奖助学金管理系统，校内用户访问请使用我校统一分配的工号（学号）进行登录！
             </p>
             <p>
-              Welcome to the scholarship management system of Henan Institute of
-              Finance and finance. Please log in with the job number (student
-              number) uniformly assigned by our university!
+              Welcome to the scholarship management system. Please log in with
+              the job number (student number) uniformly assigned by our
+              university!
             </p>
           </div>
           <div className="login">
